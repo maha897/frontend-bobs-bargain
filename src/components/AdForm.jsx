@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { Context } from "../App";
 
 const initForm = {
   title: "",
@@ -12,9 +13,14 @@ const initForm = {
 }
 
 function AdForm() {
+  const { ads, setAds } = useContext(Context)
   const [inputData, setInputData] = useState(initForm)
 
   function submitForm(event) {
+    event.preventDefault()
+    setAds([...ads, inputData])
+    setInputData(initForm)
+
     /*
     event.preventDefault()
 
@@ -40,7 +46,7 @@ function AdForm() {
 
   return (
     <div className="ad-form-container">
-      <form className="ad-form" onSubmit={submitForm()}>
+      <form className="ad-form" onSubmit={submitForm}>
         <div className="ad-form-product-info">
           <h3>Product Info</h3>
           <label htmlFor="title">Title</label> <br />
@@ -51,7 +57,7 @@ function AdForm() {
           <textarea name="description" onChange={handleChange} value={inputData.description}></textarea> <br />
           <br />
           <label htmlFor="category">Category</label> <br />
-          <select name="category">
+          <select onChange={handleChange} value={inputData.category} name="category">
             <option value="electronics">Electronics and appliances</option>
             <option value="clothing">
               Clothing and cosmetics

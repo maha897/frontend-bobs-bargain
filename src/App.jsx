@@ -8,13 +8,17 @@ import data from './assets/data/products'
 import SignUpPage from './components/SignUpPage'
 import LoginPage from './components/LogInPage'
 import AdForm from './components/AdForm'
+import CategoriesPage from './components/CategoriesPage'
 
 const Context = createContext()
 
 function App() {
-  const [products, setProducts] = useState(data)
+  const [ads, setAds] = useState([])
+  const [userLoggedIn, setUserLoggedIn] = useState(null) 
+  const [users, setUsers] = useState([])
+
   return (
-    <Context.Provider value={{ products, setProducts }}>
+    <Context.Provider value={{ ads, setAds, userLoggedIn, setUserLoggedIn }}>
       <div className='app'>
         <Header />
         <SideMenu />
@@ -25,6 +29,7 @@ function App() {
             <Route path="/sign-in" element={<SignUpPage />} />
             <Route path='/log-in' element={<LoginPage />} />
             <Route path="/new-ad" element={<AdForm />} />
+            <Route path='/categories' element={<CategoriesPage />} />
           </Routes>
         </div>
       </div>
