@@ -6,11 +6,11 @@ function Header() {
       <header className="header">
         <h1 className="logo">Bob's Bargain</h1>
         <p className="login">
-          <Link className="sign-in" to={"/sign-in"}>
+          <Link className="sign-up" to={"/sign-up"}>
             Sign in
           </Link>{" "}
           |{" "}
-          <Link className="login" to={"/log-in"}>
+          <Link className="log-in" to={"/log-in"}>
             Log in
           </Link>
         </p>

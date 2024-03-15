@@ -1,8 +1,8 @@
-function SignInPage() {
+function SignUpPage() {
     return (
-      <div className="signin-page-container">
-        <div className="signin-form-container">
-          <form className="signin-form">
+      <div className="signup-page-container">
+        <div className="signup-form-container">
+          <form className="signup-form">
             <label htmlFor="firstname">First name</label> <br />
             <input type="text" name="firstname" />
             <br />
@@ -30,4 +30,4 @@ function SignInPage() {
     );
 }
 
-export default SignInPage
+export default SignUpPage

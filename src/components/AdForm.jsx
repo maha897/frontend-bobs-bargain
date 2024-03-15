@@ -28,9 +28,12 @@ function AdForm() {
 
         <div className="ad-form-contact-info">
           <label htmlFor="address">Address</label> <br />
-          <input type="text" name="address" /> <br/><br/>
-          <label htmlFor="address">Address</label> <br /> 
-          <input type="text" name="address" /> <br/> <br/>
+          <input type="text" name="address" /> <br />
+          <br />
+          <label htmlFor="city">City</label> <br />
+          <input type="text" name="city" /> <br /> <br />
+          <label htmlFor="postcode">Post code</label> <br />
+          <input type="text" name="postcode" /> <br /> <br />
         </div>
 
         <button>Publish ad</button>
