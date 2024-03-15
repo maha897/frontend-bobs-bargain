@@ -1,6 +1,5 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Error from "./Error";
 import { Context } from "../App";
 
 const initForm = {
@@ -11,7 +10,6 @@ const initForm = {
 function LogInPage() {
     const { users, setUserLoggedIn } = useContext(Context)
     const [inputData, setInputData] = useState(initForm)
-    const [error, setError] = useState(null)
     const navigate = useNavigate()
 
     function logIn(event) {
@@ -23,7 +21,7 @@ function LogInPage() {
             setInputData(initForm)
             navigate("/")
         } else {
-            setError("Invalid email or password")
+            alert("Invalid email or password");
         }
     }  
 
@@ -47,7 +45,6 @@ function LogInPage() {
             <button>Log in</button>
           </form>
         </div>
-        {error && <Error message={error} onClose={() =>setError(null)} />}
       </div>
     );
 }
