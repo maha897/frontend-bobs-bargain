@@ -7,6 +7,7 @@ import { createContext, useState } from 'react'
 import data from './assets/data/products'
 import SignInPage from './components/SignInPage'
 import LoginPage from './components/LogInPage'
+import AdForm from './components/AdForm'
 
 const Context = createContext()
 
@@ -23,6 +24,7 @@ function App() {
             <Route path="/" element={<BrowsePage />}/>
             <Route path="/sign-in" element={<SignInPage />} />
             <Route path='/log-in' element={<LoginPage />} />
+            <Route path="/new-ad" element={<AdForm />} />
           </Routes>
         </div>
       </div>

@@ -7,7 +7,9 @@ function SideMenu() {
           <li className="side-menu-li side-menu-first">
             <Link to={"/"}>Browse</Link>
           </li>
-          <li className="side-menu-li">New Ad</li>
+          <li className="side-menu-li">
+            <Link to={"/new-ad"} >New Ad</Link>
+          </li>
           <li className="side-menu-li">Categories</li>
           <li className="side-menu-li">Messages</li>
         </ul>

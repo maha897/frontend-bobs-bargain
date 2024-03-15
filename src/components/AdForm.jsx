@@ -13,9 +13,9 @@ function AdForm() {
           <br />
           <label htmlFor="category">Category</label> <br />
           <select name="category">
-            <option value="electronics">Electronics</option>
-            <option value="clothing">Clothing</option>
-            <option value="furniture">Furniture</option>
+            <option value="electronics">Electronics and appliances</option>
+            <option value="clothing">Clothing and accessories</option>
+            <option value="furniture">Furniture and interior</option>
           </select>
           <br />
           <br />
