@@ -5,7 +5,11 @@ import Avatar from "react-avatar";
 
 /* eslint-disable react/no-unescaped-entities */
 function Header() {
-    const { userLoggedIn } = useContext(Context)
+    const { userLoggedIn, setUserLoggedIn } = useContext(Context)
+
+    function handleLogOut() {
+        setUserLoggedIn(null)
+    }
 
     return (
       <header className="header">
@@ -27,6 +31,7 @@ function Header() {
               size={50}
               round={true}
             />
+            <button onClick={handleLogOut}>Log out</button>
           </div>
         )}
       </header>

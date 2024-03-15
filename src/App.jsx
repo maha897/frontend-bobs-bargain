@@ -5,7 +5,7 @@ import SideMenu from './components/SideMenu'
 import BrowsePage from './components/BrowsePage'
 import { createContext, useState } from 'react'
 import SignUpPage from './components/SignUpPage'
-import LoginPage from './components/LogInPage'
+import LogInPage from './components/LogInPage'
 import AdForm from './components/AdForm'
 import CategoriesPage from './components/CategoriesPage'
 
@@ -26,7 +26,7 @@ function App() {
           <Routes>
             <Route path="/" element={<BrowsePage />}/>
             <Route path="/sign-up" element={<SignUpPage />} />
-            <Route path='/log-in' element={<LoginPage />} />
+            <Route path='/log-in' element={<LogInPage />} />
             <Route path="/new-ad" element={<AdForm />} />
             <Route path='/categories' element={<CategoriesPage />} />
           </Routes>
