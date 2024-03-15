@@ -85,7 +85,7 @@ function AdForm() {
           <input type="number" name="postcode" onChange={handleChange} value={inputData.postcode}/> <br /> <br />
         </div>
 
-        <button>Publish ad</button>
+        <button type="submit">Publish ad</button>
       </form>
     </div>
   );

@@ -4,7 +4,6 @@ import Header from './components/Header'
 import SideMenu from './components/SideMenu'
 import BrowsePage from './components/BrowsePage'
 import { createContext, useState } from 'react'
-import data from './assets/data/products'
 import SignUpPage from './components/SignUpPage'
 import LoginPage from './components/LogInPage'
 import AdForm from './components/AdForm'
@@ -18,7 +17,7 @@ function App() {
   const [users, setUsers] = useState([])
 
   return (
-    <Context.Provider value={{ ads, setAds, userLoggedIn, setUserLoggedIn }}>
+    <Context.Provider value={{ ads, setAds, userLoggedIn, setUserLoggedIn, users, setUsers }}>
       <div className='app'>
         <Header />
         <SideMenu />
@@ -26,7 +25,7 @@ function App() {
         <div className='page'>
           <Routes>
             <Route path="/" element={<BrowsePage />}/>
-            <Route path="/sign-in" element={<SignUpPage />} />
+            <Route path="/sign-up" element={<SignUpPage />} />
             <Route path='/log-in' element={<LoginPage />} />
             <Route path="/new-ad" element={<AdForm />} />
             <Route path='/categories' element={<CategoriesPage />} />

@@ -25,6 +25,7 @@ function Header() {
             <Avatar
               name={`${userLoggedIn.firstname} ${userLoggedIn.lastname}`}
               size={50}
+              round={true}
             />
           </div>
         )}
