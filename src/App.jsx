@@ -5,6 +5,8 @@ import SideMenu from './components/SideMenu'
 import BrowsePage from './components/BrowsePage'
 import { createContext, useState } from 'react'
 import data from './assets/data/products'
+import SignInPage from './components/SignInPage'
+import LoginPage from './components/LogInPage'
 
 const Context = createContext()
 
@@ -19,6 +21,8 @@ function App() {
         <div className='page'>
           <Routes>
             <Route path="/" element={<BrowsePage />}/>
+            <Route path="/sign-in" element={<SignInPage />} />
+            <Route path='/log-in' element={<LoginPage />} />
           </Routes>
         </div>
       </div>
