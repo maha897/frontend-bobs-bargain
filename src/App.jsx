@@ -8,6 +8,7 @@ import SignUpPage from './components/SignUpPage'
 import LogInPage from './components/LogInPage'
 import AdForm from './components/AdForm'
 import CategoriesPage from './components/CategoriesPage'
+import CategoryAdsPage from './components/CategoryAdsPage'
 
 const Context = createContext()
 
@@ -29,6 +30,8 @@ function App() {
             <Route path='/log-in' element={<LogInPage />} />
             <Route path="/new-ad" element={<AdForm />} />
             <Route path='/categories' element={<CategoriesPage />} />
+            <Route path="/" element={<CategoriesPage />} />
+            <Route path="/categories/:category" element={<CategoryAdsPage />} />
           </Routes>
         </div>
       </div>
