@@ -12,7 +12,7 @@ const initForm = {
 }
 
 function SignUpPage() {
-    const { users, setUsers, setUserLoggedIn } = useContext(Context)
+    const { users, setUsers, setUserLoggedIn, setToken } = useContext(Context)
     const [inputData, setInputData] = useState(initForm)
     const navigate = useNavigate()
 
@@ -20,15 +20,59 @@ function SignUpPage() {
       event.preventDefault()
 
       axios.post("http://localhost:4000/auth/signup", inputData)
+        .then((resp) => {
+          const user = inputData;
+          setUserLoggedIn(user);
+          setToken(resp.data.token); 
+          localStorage.setItem("token", resp.data.token); 
+          localStorage.setItem("userLoggedIn", user.email); 
+          setUsers([...users, user]); 
+
+          axios.post("http://localhost:4000/auth/login", { email: inputData.email, password: inputData.password })
+            .then((resp) => {
+              const { data } = resp;
+              if (data.token) {
+                setUserLoggedIn(user); 
+                localStorage.setItem("token", data.token); 
+                setToken(data.token); 
+                setInputData(initForm);
+                navigate("/"); 
+              } else {
+                alert("Authentication failed."); 
+              }
+            })
+            .catch((error) => console.log(error));
+        })
+        .catch((error) => console.log(error));
+    }
+      /*
+      axios.post("http://localhost:4000/auth/signup", inputData)
         .then((resp) => console.log(resp))
         .then(() => {
           setUserLoggedIn(inputData)
           setUsers([...users, inputData])
           setInputData(initForm)
-          navigate("/")
+          navigate("/")          
         })
         .catch((error) => console.log(error))
-    }
+
+      axios.post("http://localhost:4000/auth/login", inputData)
+        .then((resp) => {
+          const { data } = resp;
+          if (data.token) {
+            const user = users.find((user) => user.email === data.email);
+
+            setUserLoggedIn(inputData);
+            localStorage.setItem("token", data.token);
+            localStorage.setItem("userLoggedIn", user.id);
+            setToken(data.token);
+            setInputData(initForm);
+            navigate("/");
+          } else {
+            alert("Authentication failed.");
+          }
+      });*/
+    
 
     function handleChange(event) {
       const { name, value } = event.target

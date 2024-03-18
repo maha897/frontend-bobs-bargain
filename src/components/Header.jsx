@@ -1,14 +1,23 @@
-import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../App";
 import Avatar from "react-avatar";
 
 /* eslint-disable react/no-unescaped-entities */
 function Header() {
-  const { userLoggedIn, setUserLoggedIn } = useContext(Context);
+  const { userLoggedIn, setUserLoggedIn, setToken } = useContext(Context);
+  const navigate = useNavigate("/")
+
+  useEffect(() => {
+    console.log(userLoggedIn)
+  }, [userLoggedIn])
 
   function handleLogOut() {
     setUserLoggedIn(null);
+    setToken("")
+    localStorage.removeItem("userLoggedIn")
+    localStorage.removeItem("token")
+    navigate("/")
   }
 
   return (

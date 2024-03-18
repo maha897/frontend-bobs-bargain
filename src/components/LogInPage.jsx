@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../App";
+import axios from "axios";
 
 const initForm = {
     email: "",
@@ -10,10 +11,29 @@ const initForm = {
 function LogInPage() {
     const { users, setUserLoggedIn } = useContext(Context)
     const [inputData, setInputData] = useState(initForm)
+    const { setToken } = useContext(Context)
     const navigate = useNavigate()
 
     function logIn(event) {
         event.preventDefault()
+      
+        axios.post("http://localhost:4000/auth/login", inputData)
+          .then((resp) => {
+            const data = resp.data
+            if (data.token) {
+              const user = users.find((user) => user.email === data.email);
+
+              setUserLoggedIn(user)
+              localStorage.setItem("token", data.token)
+              localStorage.setItem("userLoggedIn", user.id)
+              setToken(data.token)
+              setInputData(initForm);
+              navigate("/")
+            } else {
+              alert("Authentication failed.")
+            }
+          })
+        /*
         const user = users.find((user) => user.email === inputData.email)
 
         if (user && user.password === inputData.password) {
@@ -22,7 +42,7 @@ function LogInPage() {
             navigate("/")
         } else {
             alert("Invalid email or password");
-        }
+        }*/
     }  
 
     function handleChange(event) {
