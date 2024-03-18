@@ -1,19 +1,22 @@
 import { useContext, useState } from "react";
 import { Context } from "../App";
 
-const initForm = {
-  title: "",
-  description: "",
-  category: "electronics",
-  price: 0,
-  address: "",
-  images: [],
-  city: "",
-  postcode: ""
-}
-
 function AdForm() {
-  const { ads, setAds } = useContext(Context)
+  const { ads, setAds, userLoggedIn } = useContext(Context)
+
+  const initForm = {
+    userId: userLoggedIn.id,
+    title: "",
+    description: "",
+    category: "electronics",
+    price: 0,
+    address: "",
+    images: [],
+    city: "",
+    postcode: "",
+    sold: false
+  }
+
   const [inputData, setInputData] = useState(initForm)
 
   function submitForm(event) {

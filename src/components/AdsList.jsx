@@ -1,21 +1,23 @@
-import { useContext } from "react"
-import { Context } from "../App"
 import AdListItem from "./AdListItem"
+import PropTypes from "prop-types"
 
-function AdsList() {
-    const { ads } = useContext(Context)
-    
+function AdsList({ ads, edit }) {    
     return (
         <div className="ads-ul-container">
             <ul className="ads-ul">
-                {
+                { 
                     ads.map((ad, index) => (
-                        <AdListItem key={index} ad={ad}/>
+                        (!ad.sold || edit) && <AdListItem key={index} ad={ad} edit={edit}/>
                     ))
                 }
             </ul>
         </div>
     )
+}
+
+AdsList.propTypes = {
+    ads: PropTypes.array,
+    edit: PropTypes.bool,
 }
 
 export default AdsList
