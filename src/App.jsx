@@ -4,17 +4,22 @@ import Header from './components/Header'
 import SideMenu from './components/SideMenu'
 import BrowsePage from './components/BrowsePage'
 import { createContext, useState } from 'react'
-import data from './assets/data/products'
 import SignUpPage from './components/SignUpPage'
-import LoginPage from './components/LogInPage'
+import LogInPage from './components/LogInPage'
 import AdForm from './components/AdForm'
+import CategoriesPage from './components/CategoriesPage'
+import CategoryAdsPage from './components/CategoryAdsPage'
+import UserPage from './components/UserPage'
 
 const Context = createContext()
 
 function App() {
-  const [products, setProducts] = useState(data)
+  const [ads, setAds] = useState([])
+  const [userLoggedIn, setUserLoggedIn] = useState(null) 
+  const [users, setUsers] = useState([])
+
   return (
-    <Context.Provider value={{ products, setProducts }}>
+    <Context.Provider value={{ ads, setAds, userLoggedIn, setUserLoggedIn, users, setUsers }}>
       <div className='app'>
         <Header />
         <SideMenu />
@@ -22,9 +27,13 @@ function App() {
         <div className='page'>
           <Routes>
             <Route path="/" element={<BrowsePage />}/>
-            <Route path="/sign-in" element={<SignUpPage />} />
-            <Route path='/log-in' element={<LoginPage />} />
+            <Route path="/sign-up" element={<SignUpPage />} />
+            <Route path='/log-in' element={<LogInPage />} />
             <Route path="/new-ad" element={<AdForm />} />
+            <Route path='/categories' element={<CategoriesPage />} />
+            <Route path="/" element={<CategoriesPage />} />
+            <Route path="/categories/:category" element={<CategoryAdsPage />} />
+            <Route path="/user" element={<UserPage />} />
           </Routes>
         </div>
       </div>
