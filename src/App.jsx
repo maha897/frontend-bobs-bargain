@@ -36,7 +36,7 @@ function App() {
             <Route path="/" element={<CategoriesPage />} />
             <Route path="/categories/:category" element={<CategoryAdsPage />} />
             <Route path="/profile" element={<UserPage />} />
-            <Route path="/my-ads" element={<MyAds />} />
+            <Route path="/profile/my-ads" element={<MyAds />} />
             <Route path="profile/user-settings" element={<UserSettings />} />
           </Routes>
         </div>

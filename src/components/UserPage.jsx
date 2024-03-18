@@ -7,10 +7,10 @@ function UserPage() {
       <div className="user-page-container">
         <AccountHeader />
         <div className="my-ads-link">
-          <Link to={"/my-ads"}>My Ads</Link>
+          <Link to={"/profile/my-ads"}>My Ads</Link>
         </div>
         <div className="user-settings-link">
-          <Link to={"user-settings"}>User Settings</Link>
+          <Link to={"/profile/user-settings"}>User Settings</Link>
         </div>
       </div>
     );
