@@ -19,14 +19,13 @@ function LogInPage() {
       
         axios.post("http://localhost:4000/auth/login", inputData)
           .then((resp) => {
-            const data = resp.data
-            if (data.token) {
-              const user = users.find((user) => user.email === data.email);
+            if (resp.data.token) {
+              const user = users.find((user) => user.email === resp.data.email);
 
               setUserLoggedIn(user)
-              localStorage.setItem("token", data.token)
-              localStorage.setItem("userLoggedIn", user.id)
-              setToken(data.token)
+              setToken(resp.data.token)
+              localStorage.setItem("token", resp.data.token)
+              localStorage.setItem("userLoggedIn", user.email)
               setInputData(initForm);
               navigate("/")
             } else {

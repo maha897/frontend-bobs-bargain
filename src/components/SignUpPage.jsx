@@ -20,21 +20,17 @@ function SignUpPage() {
       event.preventDefault()
 
       axios.post("http://localhost:4000/auth/signup", inputData)
-        .then((resp) => {
+        .then(() => {
           const user = inputData;
-          setUserLoggedIn(user);
-          setToken(resp.data.token); 
-          localStorage.setItem("token", resp.data.token); 
-          localStorage.setItem("userLoggedIn", user.email); 
           setUsers([...users, user]); 
 
           axios.post("http://localhost:4000/auth/login", { email: inputData.email, password: inputData.password })
             .then((resp) => {
-              const { data } = resp;
-              if (data.token) {
+              if (resp.data.token) {
                 setUserLoggedIn(user); 
-                localStorage.setItem("token", data.token); 
-                setToken(data.token); 
+                setToken(resp.data.token); 
+                localStorage.setItem("token", resp.data.token);
+                localStorage.setItem("userLoggedIn", user.email); 
                 setInputData(initForm);
                 navigate("/"); 
               } else {

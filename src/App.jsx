@@ -19,7 +19,7 @@ function App() {
   const [ads, setAds] = useState([]);
   const [users, setUsers] = useState([]);
   const [userLoggedIn, setUserLoggedIn] = useState(null);
-  const [token, setToken] = useState(localStorage.getItem("authToken") || "");
+  const [token, setToken] = useState(localStorage.getItem("token") || "");
 
   useEffect(() => {
     setUserLoggedIn(loadUserFromStorage());
