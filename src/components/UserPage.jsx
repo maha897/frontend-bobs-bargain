@@ -1,18 +1,19 @@
-import { useContext } from "react"
-import Avatar from "react-avatar"
-import { Context } from "../App"
+import { Link } from "react-router-dom"
+import AccountHeader from "./AccountHeader"
 
 function UserPage() {
-    const { userLoggedIn } = useContext(Context)
 
     return (
-        <div className="user-page-container">
-            <h2>Account Settings</h2>
-            <Avatar name={`${userLoggedIn.firstname} ${userLoggedIn.lastname}`} round={true}/>
-            <hr></hr>
-            
+      <div className="user-page-container">
+        <AccountHeader />
+        <div className="my-ads-link">
+          <Link to={"/my-ads"}>My Ads</Link>
         </div>
-    )
+        <div className="user-settings-link">
+          <Link to={"user-settings"}>User Settings</Link>
+        </div>
+      </div>
+    );
 }
 
 export default UserPage

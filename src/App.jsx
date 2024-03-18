@@ -10,6 +10,8 @@ import AdForm from './components/AdForm'
 import CategoriesPage from './components/CategoriesPage'
 import CategoryAdsPage from './components/CategoryAdsPage'
 import UserPage from './components/UserPage'
+import MyAds from './components/MyAds'
+import UserSettings from './components/UserSettings'
 
 const Context = createContext()
 
@@ -33,7 +35,9 @@ function App() {
             <Route path='/categories' element={<CategoriesPage />} />
             <Route path="/" element={<CategoriesPage />} />
             <Route path="/categories/:category" element={<CategoryAdsPage />} />
-            <Route path="/user" element={<UserPage />} />
+            <Route path="/profile" element={<UserPage />} />
+            <Route path="/my-ads" element={<MyAds />} />
+            <Route path="profile/user-settings" element={<UserSettings />} />
           </Routes>
         </div>
       </div>
