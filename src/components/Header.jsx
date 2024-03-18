@@ -34,7 +34,7 @@ function Header() {
             />
           </Link>
 
-          <button onClick={handleLogOut}>Log out</button>
+          <button className="log-out-button" onClick={handleLogOut}>Log out</button>
         </div>
       )}
     </header>
