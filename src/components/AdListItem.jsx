@@ -19,6 +19,11 @@ function AdListItem({ ad, edit }) {
             {ad.title}
             {ad.description}
             {ad.price}
+            {!edit && (
+              <div className="ad-contact-info">
+                
+              </div>
+            )}
             {edit && (
               <div>
                 {ad.sold ? <p>Status: Sold</p> : <p>Status: Active</p>}

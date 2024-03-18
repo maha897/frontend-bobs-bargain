@@ -1,10 +1,11 @@
 import { useContext, useState } from "react";
 import { Context } from "../App";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const initForm = {
-  firstname: "",
-  lastname: "",
+  firstName: "",
+  lastName: "",
   email: "",
   phone: "",
   password: "",
@@ -17,10 +18,16 @@ function SignUpPage() {
 
     function submitForm(event) {
       event.preventDefault()
-      setUserLoggedIn(inputData)
-      setUsers([...users, inputData])
-      setInputData(initForm)
-      navigate("/")
+
+      axios.post("http://localhost:4000/auth/signup", inputData)
+        .then((resp) => console.log(resp))
+        .then(() => {
+          setUserLoggedIn(inputData)
+          setUsers([...users, inputData])
+          setInputData(initForm)
+          navigate("/")
+        })
+        .catch((error) => console.log(error))
     }
 
     function handleChange(event) {
@@ -32,22 +39,22 @@ function SignUpPage() {
       <div className="signup-page-container">
         <div className="signup-form-container">
           <form className="signup-form" onSubmit={submitForm}>
-            <label htmlFor="firstname">First name</label> <br />
+            <label htmlFor="firstName">First name</label> <br />
             <input
               type="text"
-              name="firstname"
+              name="firstName"
               onChange={handleChange}
-              value={inputData.firstname}
+              value={inputData.firstName}
               required
             />
             <br />
             <br />
-            <label htmlFor="lastname">Last name</label> <br />
+            <label htmlFor="lastName">Last name</label> <br />
             <input
               type="text"
-              name="lastname"
+              name="lastName"
               onChange={handleChange}
-              value={inputData.lastname}
+              value={inputData.lastName}
               required
             />
             <br />

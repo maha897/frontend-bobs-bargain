@@ -28,7 +28,7 @@ function Header() {
         <div className="avatar-container">
           <Link to={"/profile"}>
             <Avatar
-              name={`${userLoggedIn.firstname} ${userLoggedIn.lastname}`}
+              name={`${userLoggedIn.firstName} ${userLoggedIn.lastName}`}
               size={50}
               round={true}
             />

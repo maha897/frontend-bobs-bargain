@@ -9,10 +9,10 @@ function AccountHeader() {
       <div className="account-header">
         <h2>Account</h2>
         <Avatar
-          name={`${userLoggedIn.firstname} ${userLoggedIn.lastname}`}
+          name={`${userLoggedIn.firstName} ${userLoggedIn.lastName}`}
           round={true}
         />
-        <h3>{`${userLoggedIn.firstname} ${userLoggedIn.lastname}`}</h3>
+        <h3>{`${userLoggedIn.firstName} ${userLoggedIn.lastName}`}</h3>
         <p>{userLoggedIn.email}</p>
         <hr></hr>
       </div>
