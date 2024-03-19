@@ -27,22 +27,22 @@ function UserSettings() {
         <AccountHeader />
 
         <form className="user-settings-form" onSubmit={handleSubmit}>
-          <label htmlFor="firstname">First name</label> <br />
+          <label htmlFor="firstName">First name</label> <br />
           <input
             type="text"
-            name="firstname"
+            name="firstName"
             onChange={handleChange}
-            value={inputData.firstname}
+            value={inputData.firstName}
             required
           />
           <br />
           <br />
-          <label htmlFor="lastname">Last name</label> <br />
+          <label htmlFor="lastName">Last name</label> <br />
           <input
             type="text"
-            name="lastname"
+            name="lastName"
             onChange={handleChange}
-            value={inputData.lastname}
+            value={inputData.lastName}
             required
           />
           <br />
