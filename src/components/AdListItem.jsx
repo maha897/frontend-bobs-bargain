@@ -1,6 +1,7 @@
 import PropTypes from "prop-types"
 import { useContext } from "react";
 import { Context } from "../App";
+import { Link } from "react-router-dom";
 
 function AdListItem({ ad, edit }) {
   const { ads, setAds } = useContext(Context)
@@ -17,11 +18,11 @@ function AdListItem({ ad, edit }) {
       <div className="ad-container">
         <li className="ad-li">
             {ad.title}
-            {ad.description}
+            {/* {ad.description} */}
             {ad.price}
             {!edit && (
               <div className="ad-contact-info">
-                
+                <Link to={`/listings/$ad.id`}><button>View</button></Link>
               </div>
             )}
             {edit && (
