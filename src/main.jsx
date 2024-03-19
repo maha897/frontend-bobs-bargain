@@ -2,9 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { App } from "./App.jsx";
 import {
-  BrowserRouter,
   Route,
   Routes,
+  HashRouter
 } from "react-router-dom";
 
 import BrowsePage from "./components/BrowsePage.jsx";
@@ -13,7 +13,7 @@ import SignUpPage from "./components/Auth/SignUpPage.jsx"
 import UserPage from "./components/ProfilePage/UserPage.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
+  <HashRouter>
     <React.StrictMode>
       <Routes>
         <Route path="/" element={<App />}>
@@ -24,5 +24,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         </Route>
       </Routes>
     </React.StrictMode>
-  </BrowserRouter>
+  </HashRouter>
 );
