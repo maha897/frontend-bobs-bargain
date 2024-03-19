@@ -41,33 +41,7 @@ function SignUpPage() {
         })
         .catch((error) => console.log(error));
     }
-      /*
-      axios.post("http://localhost:4000/auth/signup", inputData)
-        .then((resp) => console.log(resp))
-        .then(() => {
-          setUserLoggedIn(inputData)
-          setUsers([...users, inputData])
-          setInputData(initForm)
-          navigate("/")          
-        })
-        .catch((error) => console.log(error))
-
-      axios.post("http://localhost:4000/auth/login", inputData)
-        .then((resp) => {
-          const { data } = resp;
-          if (data.token) {
-            const user = users.find((user) => user.email === data.email);
-
-            setUserLoggedIn(inputData);
-            localStorage.setItem("token", data.token);
-            localStorage.setItem("userLoggedIn", user.id);
-            setToken(data.token);
-            setInputData(initForm);
-            navigate("/");
-          } else {
-            alert("Authentication failed.");
-          }
-      });*/
+  
     
 
     function handleChange(event) {

@@ -22,16 +22,33 @@ function App() {
   const [token, setToken] = useState(localStorage.getItem("token") || "");
 
   useEffect(() => {
+    async function fetchUsers() {
+      try {
+        const response = await fetch("http://localhost:4000/users");
+        if (!response.ok) {
+          throw new Error("Failed to fetch users.");
+        }
+        const userData = await response.json();
+        setUsers(userData);
+      } catch (error) {
+        console.error("Error fetching users data:", error);
+      }
+    }
+
+    fetchUsers();
+  }, []); 
+
+  useEffect(() => {
     setUserLoggedIn(loadUserFromStorage());
-  }, [users]);
+  }, []);
 
   function loadUserFromStorage() {
     const storedUser = localStorage.getItem("userLoggedIn");
     if (storedUser !== undefined || storedUser !== null) {
-      const user = users.find((user) => user.email === storedUser)
-      return user || null
+      const user = users.find((user) => user.email === storedUser);
+      return user || null;
     } else {
-      return null
+      return null;
     }
   }
 

@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../App";
 import Avatar from "react-avatar";
@@ -6,18 +6,14 @@ import Avatar from "react-avatar";
 /* eslint-disable react/no-unescaped-entities */
 function Header() {
   const { userLoggedIn, setUserLoggedIn, setToken } = useContext(Context);
-  const navigate = useNavigate("/")
-
-  useEffect(() => {
-    console.log(userLoggedIn)
-  }, [userLoggedIn])
+  const navigate = useNavigate("/");
 
   function handleLogOut() {
     setUserLoggedIn(null);
-    setToken("")
-    localStorage.removeItem("userLoggedIn")
-    localStorage.removeItem("token")
-    navigate("/")
+    setToken("");
+    localStorage.removeItem("userLoggedIn");
+    localStorage.removeItem("token");
+    navigate("/");
   }
 
   return (
@@ -43,7 +39,9 @@ function Header() {
             />
           </Link>
 
-          <button className="log-out-button" onClick={handleLogOut}>Log out</button>
+          <button className="log-out-button" onClick={handleLogOut}>
+            Log out
+          </button>
         </div>
       )}
     </header>
