@@ -11,6 +11,8 @@ import BrowsePage from "./components/BrowsePage/BrowsePage.jsx";
 import LogInPage from "./components/Auth/LogInPage.jsx";
 import SignUpPage from "./components/Auth/SignUpPage.jsx"
 import UserPage from "./components/ProfilePage/UserPage.jsx";
+import MyAds from "./components/ProfilePage/MyAds.jsx";
+import UserSettings from "./components/ProfilePage/UserSettings.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <HashRouter>
@@ -21,6 +23,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="login" element={<LogInPage />} />
           <Route path="signup" element={<SignUpPage />} />
           <Route path="profile" element={<UserPage />} />
+          <Route path="profile/items" element={<MyAds />} />
+          <Route path="profile/settings" element={<UserSettings />} />
         </Route>
       </Routes>
     </React.StrictMode>
