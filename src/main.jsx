@@ -8,8 +8,8 @@ import {
 } from "react-router-dom";
 
 import BrowsePage from "./components/BrowsePage.jsx";
-import LogInPage from "./components/LogInPage.jsx";
-import SignUpPage from "./components/SignUpPage.jsx"
+import LogInPage from "./components/Auth/LogInPage.jsx";
+import SignUpPage from "./components/Auth/SignUpPage.jsx"
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>

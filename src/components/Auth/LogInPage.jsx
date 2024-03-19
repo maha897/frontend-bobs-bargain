@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { Context } from "../App";
-import { fetchUser, login } from "../service/api";
+import { Link, useNavigate } from "react-router-dom";
+import { Context } from "../../App";
+import { fetchUser, login } from "../../service/api";
 
 const initForm = {
   email: "",
@@ -66,6 +66,8 @@ function LogInPage() {
           <br />
           <br />
           <button>Log in</button>
+          <br />
+          <p>No user? <Link className="sign-up" to={"/signup"}>Make a new account!</Link></p>
         </form>
       </div>
     </div>

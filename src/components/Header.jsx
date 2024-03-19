@@ -11,7 +11,7 @@ function Header() {
   function handleLogOut() {
     setUser(null);
     setToken("");
-    setUserId("")
+    setUserId("");
     localStorage.removeItem("id");
     localStorage.removeItem("token");
     navigate("/login");
@@ -22,11 +22,11 @@ function Header() {
       <h1 className="logo">Bob's Bargain</h1>
       {!user ? (
         <p className="login">
-          <Link className="sign-up" to={"/sign-up"}>
+          <Link className="sign-up" to={"/signup"}>
             Sign up
           </Link>{" "}
           |{" "}
-          <Link className="log-in" to={"/log-in"}>
+          <Link className="log-in" to={"/login"}>
             Log in
           </Link>
         </p>
