@@ -21,15 +21,15 @@ function Header() {
     <header className="header">
       <h1 className="logo">Bob's Bargain</h1>
       {!user ? (
-        <p className="login">
+        <div className="login">
           <Link className="sign-up" to={"/signup"}>
             Sign up
-          </Link>{" "}
-          |{" "}
+          </Link>
+          {" "}|{" "}
           <Link className="log-in" to={"/login"}>
             Log in
           </Link>
-        </p>
+        </div>
       ) : (
         <div className="avatar-container">
           <Link to={"/profile"}>
