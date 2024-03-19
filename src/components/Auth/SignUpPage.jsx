@@ -49,6 +49,11 @@ function SignUpPage() {
   return (
     <div className="signup-page-container">
       <div className="signup-form-container">
+        <h2>Sign up</h2>
+        <div className="line-div">
+          <hr></hr>
+          <br/>
+        </div>
         <form className="signup-form" onSubmit={submitForm}>
           <label htmlFor="firstName">First name</label> <br />
           <input
@@ -57,9 +62,9 @@ function SignUpPage() {
             onChange={handleChange}
             value={inputData.firstName}
             required
+            placeholder="First name*"
           />
-          <br />
-          <br />
+          
           <label htmlFor="lastName">Last name</label> <br />
           <input
             type="text"
@@ -67,9 +72,8 @@ function SignUpPage() {
             onChange={handleChange}
             value={inputData.lastName}
             required
+            placeholder="Last name*"
           />
-          <br />
-          <br />
           <label htmlFor="email">Email</label> <br />
           <input
             type="email"
@@ -77,9 +81,9 @@ function SignUpPage() {
             onChange={handleChange}
             value={inputData.email}
             required
+            placeholder="Email*"
           />
-          <br />
-          <br />
+         
           <label htmlFor="phone">Phone</label> <br />
           <input
             type="number"
@@ -87,9 +91,8 @@ function SignUpPage() {
             onChange={handleChange}
             value={inputData.phone}
             required
+            placeholder="Phone*"
           />
-          <br />
-          <br />
           <label htmlFor="password">Password</label> <br />
           <input
             type="password"
@@ -97,6 +100,7 @@ function SignUpPage() {
             onChange={handleChange}
             value={inputData.password}
             required
+            placeholder="Password*"
           />
           <br />
           <br />

@@ -46,6 +46,11 @@ function LogInPage() {
   return (
     <div className="login-page-container">
       <div className="login-form-container">
+        <h2>Log in</h2>
+        <div className="line-div">
+          <hr></hr>
+          <br />
+        </div>
         <form className="login-form" onSubmit={logIn}>
           <label htmlFor="email">Email</label> <br />
           <input
@@ -53,6 +58,7 @@ function LogInPage() {
             name="email"
             onChange={handleChange}
             value={inputData.email}
+            placeholder="Email*"
           />
           <br />
           <br />
@@ -62,12 +68,18 @@ function LogInPage() {
             name="password"
             onChange={handleChange}
             value={inputData.password}
+            placeholder="Password*"
           />
           <br />
           <br />
-          <button>Log in</button>
+          <button className="button">Log in</button>
           <br />
-          <p>No user? <Link className="sign-up" to={"/signup"}>Make a new account!</Link></p>
+          <p>
+            No user?{" "}
+            <Link className="sign-up" to={"/signup"}>
+              Make a new account!
+            </Link>
+          </p>
         </form>
       </div>
     </div>
