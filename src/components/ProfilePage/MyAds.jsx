@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { Context } from "../App"
+import { Context } from "../../App"
 import AdsList from "./AdsList"
 import AccountHeader from "./AccountHeader"
 

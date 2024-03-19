@@ -1,6 +1,6 @@
 import PropTypes from "prop-types"
 import { useContext, useEffect, useState } from "react";
-import { Context } from "../App";
+import { Context } from "../../App";
 import { useParams } from "react-router-dom";
 
 function AdView() {

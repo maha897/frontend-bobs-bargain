@@ -1,5 +1,5 @@
 import { useContext, useState } from "react"
-import { Context } from "../App"
+import { Context } from "../../App"
 import { useNavigate } from "react-router-dom";
 import AccountHeader from "./AccountHeader";
 

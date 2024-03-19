@@ -7,7 +7,7 @@ import {
   HashRouter
 } from "react-router-dom";
 
-import BrowsePage from "./components/BrowsePage.jsx";
+import BrowsePage from "./components/BrowsePage/BrowsePage.jsx";
 import LogInPage from "./components/Auth/LogInPage.jsx";
 import SignUpPage from "./components/Auth/SignUpPage.jsx"
 import UserPage from "./components/ProfilePage/UserPage.jsx";

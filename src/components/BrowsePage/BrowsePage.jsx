@@ -1,8 +1,8 @@
 import { useContext, useState, useEffect } from "react";
-import AdsList from "./BrowsePage/AdsList";
-import SearchBar from "./BrowsePage/SearchBar";
-import { Context } from "../App";
-import { fetchAllListings } from "../service/api";
+import AdsList from "./Listings/AdsList";
+import SearchBar from "./SearchBar";
+import { Context } from "../../App";
+import { fetchAllListings } from "../../service/api";
 
 function BrowsePage() {
   const [listings, setListings] = useState([]);

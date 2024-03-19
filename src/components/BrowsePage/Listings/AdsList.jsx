@@ -1,6 +1,6 @@
-import AdListItem from "../AdListItem";
+import AdListItem from "./AdListItem";
 import PropTypes from "prop-types";
-import { Context } from "../../App";
+import { Context } from "../../../App";
 import { useContext } from "react";
 
 function AdsList({ ads }) {

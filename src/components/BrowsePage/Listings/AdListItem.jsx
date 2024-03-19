@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { useContext } from "react";
-import { Context } from "../App";
+import { Context } from "../../../App";
 import { Link } from "react-router-dom";
 
 function AdListItem({ ad, edit }) {
