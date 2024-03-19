@@ -1,19 +1,19 @@
 import { useContext } from "react";
 import Avatar from "react-avatar";
-import { Context } from "../App";
+import { Context } from "../../App";
 
 function AccountHeader() {
-    const { userLoggedIn } = useContext(Context)
+    const { user } = useContext(Context)
 
     return (
       <div className="account-header">
         <h2>Account</h2>
         <Avatar
-          name={`${userLoggedIn.firstName} ${userLoggedIn.lastName}`}
+          name={`${user.firstName} ${user.lastName}`}
           round={true}
         />
-        <h3>{`${userLoggedIn.firstName} ${userLoggedIn.lastName}`}</h3>
-        <p>{userLoggedIn.email}</p>
+        <h3>{`${user.firstName} ${user.lastName}`}</h3>
+        <p>{user.email}</p>
         <hr></hr>
       </div>
     );

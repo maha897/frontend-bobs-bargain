@@ -10,6 +10,7 @@ import {
 import BrowsePage from "./components/BrowsePage.jsx";
 import LogInPage from "./components/Auth/LogInPage.jsx";
 import SignUpPage from "./components/Auth/SignUpPage.jsx"
+import UserPage from "./components/ProfilePage/UserPage.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
@@ -19,6 +20,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route index element={<BrowsePage />} />
           <Route path="login" element={<LogInPage />} />
           <Route path="signup" element={<SignUpPage />} />
+          <Route path="profile" element={<UserPage />} />
         </Route>
       </Routes>
     </React.StrictMode>
