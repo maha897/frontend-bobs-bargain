@@ -1,19 +1,31 @@
-import { useContext } from "react"
-import { Context } from "../../App"
-import AdsList from "./AdsList"
-import AccountHeader from "./AccountHeader"
+import { useContext, useState, useEffect } from "react";
+import { Context } from "../../App";
+import AdsList from "../BrowsePage/Listings/AdsList";
+import { fetchAllListings } from "../../service/api";
+import AccountHeader from "./AccountHeader";
 
 function MyAds() {
-    const { ads, userLoggedIn } = useContext(Context)
-    const myAds = ads.filter((ad) => ad.userId === userLoggedIn.id)
-    // myAds state?
+  const { user, token } = useContext(Context);
+  const [filteredListings, setfilteredListings] = useState([]);
 
-    return (
-        <div className="my-ads">
-            <AccountHeader />
-            <AdsList ads={myAds} edit={true}/>
-        </div>
-    )
+  useEffect(() => {
+    async function fetchListings() {
+      const listingResponse = await fetchAllListings(token);
+      setfilteredListings(
+        listingResponse.filter((item) => item.user.id === user.id)
+      );
+    }
+
+    fetchListings();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  return (
+    <div className="my-ads">
+      <AccountHeader user={user} />
+      <AdsList ads={filteredListings} />
+    </div>
+  );
 }
 
-export default MyAds
+export default MyAds;
