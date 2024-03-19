@@ -19,35 +19,7 @@
   margin-right: 70px;
 }
 
-.side-menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 150px; 
-  background-color: rgb(247, 247, 249);
-  padding: 20px;
-  box-sizing: border-box; /* Include padding in the width */
-  z-index: 900; 
-  text-align: center;
-}
-
-.side-menu-ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-.side-menu-li {
-  margin: 20px
-}
-
-.side-menu-first {
-  margin-top: 80px;
-}
-
 .page {
-  margin-left: 150px; 
   margin-top: 80px; 
   padding: 20px; 
   box-sizing: border-box; 

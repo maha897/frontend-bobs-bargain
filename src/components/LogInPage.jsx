@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../App";
-import axios from "axios";
+import { fetchUser, login } from "../service/api";
 
 const initForm = {
   email: "",
@@ -9,29 +9,33 @@ const initForm = {
 };
 
 function LogInPage() {
-  const { users, setUserLoggedIn } = useContext(Context);
+  const { setUser, setToken, setUserId } = useContext(Context);
   const [inputData, setInputData] = useState(initForm);
-  const { setToken } = useContext(Context);
   const navigate = useNavigate();
 
-  function logIn(event) {
+  async function logIn(event) {
     event.preventDefault();
 
-    axios.post("http://localhost:4000/auth/login", inputData).then((resp) => {
-      console.log(resp.data);
-      if (resp.data.token) {
-        const user = users.find((user) => user.email === resp.data.email);
+    const loginResponse = await login(inputData);
+    console.log("Logging in...")
 
-        setUserLoggedIn(user);
-        setToken(resp.data.token);
-        localStorage.setItem("token", resp.data.token);
-        localStorage.setItem("userLoggedIn", resp.data.email);
-        setInputData(initForm);
-        navigate("/");
-      } else {
-        alert("Authentication failed.");
-      }
-    });
+    // FIXME: Trycatch instead to be able to print the error
+    if (loginResponse.status == 200) {
+      const fetchedToken = loginResponse.data.token
+      const fetchedId = loginResponse.data.id
+      setToken(fetchedToken)
+      setUserId(fetchedId)
+      localStorage.setItem('token', fetchedToken)
+      localStorage.setItem('id', fetchedId)
+
+      const userResponse = await fetchUser(fetchedId, fetchedToken);
+      setUser(userResponse.data)
+
+      console.log("Logged in")
+      navigate("/")
+    } else {
+      console.error("Could not login")
+    }
   }
 
   function handleChange(event) {

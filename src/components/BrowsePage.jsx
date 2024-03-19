@@ -1,17 +1,29 @@
-import { useContext } from "react";
-import AdsList from "./AdsList";
-import SearchBar from "./SearchBar"
+import { useContext, useState, useEffect } from "react";
+import AdsList from "./BrowsePage/AdsList";
+import SearchBar from "./BrowsePage/SearchBar";
 import { Context } from "../App";
+import { fetchAllListings } from "../service/api";
 
 function BrowsePage() {
-  const { ads } = useContext(Context)
+  const [listings, setListings] = useState([]);
+  const { token } = useContext(Context);
 
-    return (
-      <div className="browse-page">
-        <SearchBar />
-        <AdsList ads={ads} edit={false}/>
-      </div>
-    );
+  useEffect(() => {
+    async function fetchListings() {
+      const listingResponse = await fetchAllListings(token);
+      setListings(listingResponse);
+      console.log("Listings: ", listingResponse)
+    }
+
+    fetchListings();
+  }, []);
+
+  return (
+    <div className="browse-page">
+      <SearchBar />
+      <AdsList ads={listings} />
+    </div>
+  );
 }
 
-export default BrowsePage
+export default BrowsePage;

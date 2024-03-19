@@ -5,21 +5,22 @@ import Avatar from "react-avatar";
 
 /* eslint-disable react/no-unescaped-entities */
 function Header() {
-  const { userLoggedIn, setUserLoggedIn, setToken } = useContext(Context);
+  const { user, setUser, setToken, setUserId } = useContext(Context);
   const navigate = useNavigate("/");
 
   function handleLogOut() {
-    setUserLoggedIn(null);
+    setUser(null);
     setToken("");
-    localStorage.removeItem("userLoggedIn");
+    setUserId("")
+    localStorage.removeItem("id");
     localStorage.removeItem("token");
-    navigate("/");
+    navigate("/login");
   }
 
   return (
     <header className="header">
       <h1 className="logo">Bob's Bargain</h1>
-      {!userLoggedIn ? (
+      {!user ? (
         <p className="login">
           <Link className="sign-up" to={"/sign-up"}>
             Sign up
@@ -33,7 +34,7 @@ function Header() {
         <div className="avatar-container">
           <Link to={"/profile"}>
             <Avatar
-              name={`${userLoggedIn.firstName} ${userLoggedIn.lastName}`}
+              name={`${user.firstName} ${user.lastName}`}
               size={50}
               round={true}
             />

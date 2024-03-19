@@ -1,86 +1,67 @@
-import { Route, Routes } from "react-router";
+import { createContext, useEffect, useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
-import SideMenu from "./components/SideMenu";
-import BrowsePage from "./components/BrowsePage";
-import { createContext, useEffect, useState } from "react";
-import SignUpPage from "./components/SignUpPage";
-import LogInPage from "./components/LogInPage";
-import AdForm from "./components/AdForm";
-import CategoriesPage from "./components/CategoriesPage";
-import CategoryAdsPage from "./components/CategoryAdsPage";
-import UserPage from "./components/UserPage";
-import MyAds from "./components/MyAds";
-import UserSettings from "./components/UserSettings";
+import { fetchUser } from "./service/api";
+import { Outlet, useNavigate } from "react-router-dom";
 
 const Context = createContext();
 
 function App() {
-  const [ads, setAds] = useState([]);
-  const [users, setUsers] = useState([]);
-  const [userLoggedIn, setUserLoggedIn] = useState(null);
+  const [user, setUser] = useState(null);
+  const [userId, setUserId] = useState(localStorage.getItem("id") || "");
   const [token, setToken] = useState(localStorage.getItem("token") || "");
+  const navigate = useNavigate();
 
   useEffect(() => {
-    async function fetchUsers() {
-      try {
-        const response = await fetch("http://localhost:4000/users");
-        if (!response.ok) {
-          throw new Error("Failed to fetch users.");
+    async function init() {
+      if (token && userId) {
+        console.log("Stored Token: " + token);
+        console.log("Stored user ID: " + userId);
+
+        const userResponse = await fetchUser(userId, token);
+        if (userResponse.status == 200) {
+          setUser(userResponse.data);
+          console.log("Logged in");
+          // Give full access
+        } else {
+          console.error("User not authenticated/found");
+          localStorage.setItem("token", "");
+          localStorage.setItem("id", "");
+          setUser(null);
+          // Redirect to login page
+          console.log("Not logged in. Redirecting to /login");
+          navigate("/login");
         }
-        const userData = await response.json();
-        setUsers(userData);
-      } catch (error) {
-        console.error("Error fetching users data:", error);
+      } else {
+        console.log("No stored details");
+        localStorage.setItem("token", "");
+        localStorage.setItem("id", "");
+        setUser(null);
+        // Redirect to login page
+        console.log("Not logged in. Redirecting to /login");
+        navigate("/login");
       }
     }
 
-    fetchUsers();
-  }, []); 
-
-  useEffect(() => {
-    setUserLoggedIn(loadUserFromStorage());
+    init();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  function loadUserFromStorage() {
-    const storedUser = localStorage.getItem("userLoggedIn");
-    if (storedUser !== undefined || storedUser !== null) {
-      const user = users.find((user) => user.email === storedUser);
-      return user || null;
-    } else {
-      return null;
-    }
-  }
 
   return (
     <Context.Provider
       value={{
-        ads,
-        setAds,
-        userLoggedIn,
-        setUserLoggedIn,
-        users,
-        setUsers,
+        user,
+        setUser,
+        userId,
+        setUserId,
         token,
         setToken,
       }}
     >
       <div className="app">
         <Header />
-        <SideMenu />
-
         <div className="page">
-          <Routes>
-            <Route path="/" element={<BrowsePage />} />
-            <Route path="/sign-up" element={<SignUpPage />} />
-            <Route path="/log-in" element={<LogInPage />} />
-            <Route path="/new-ad" element={<AdForm />} />
-            <Route path="/categories" element={<CategoriesPage />} />
-            <Route path="/categories/:category" element={<CategoryAdsPage />} />
-            <Route path="/profile" element={<UserPage />} />
-            <Route path="/profile/my-ads" element={<MyAds />} />
-            <Route path="/profile/user-settings" element={<UserSettings />} />
-          </Routes>
+          <Outlet />
         </div>
       </div>
     </Context.Provider>
