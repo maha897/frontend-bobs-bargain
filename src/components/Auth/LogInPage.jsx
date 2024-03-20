@@ -48,25 +48,21 @@ function LogInPage() {
         <h2>Log in</h2>
         <div className="line-div">
           <hr></hr>
-          <br />
         </div>
         <form className="login-form" onSubmit={logIn}>
-          <label htmlFor="email">Email</label> <br />
           <input
             type="email"
             name="email"
             onChange={handleChange}
             value={inputData.email}
-            placeholder="Email*"
+            placeholder="Email"
           />
-          <br />
-          <label htmlFor="password">Password</label> <br />
           <input
             type="password"
             name="password"
             onChange={handleChange}
             value={inputData.password}
-            placeholder="Password*"
+            placeholder="Password"
           />
           <br />
           <button className="button">Log in</button>
