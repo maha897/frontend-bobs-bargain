@@ -12,7 +12,7 @@ function MyAds() {
     async function fetchListings() {
       const listingResponse = await fetchAllListings(token);
       setfilteredListings(
-        listingResponse.filter((item) => item.user.id === user.id)
+        listingResponse.filter((item) => item.user.id === user?.id)
       );
     }
 
@@ -22,7 +22,7 @@ function MyAds() {
 
   return (
     <div className="my-ads">
-      <AccountHeader user={user} />
+      <AccountHeader />
       <AdsList ads={filteredListings} />
     </div>
   );

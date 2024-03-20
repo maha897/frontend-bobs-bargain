@@ -17,26 +17,23 @@ function UserSettings() {
   async function handleSubmit(event) {
     event.preventDefault();
 
-    // TODO: PUT REQUEST
-
-    try{
-      const userId = user.id
+    try {
+      const userId = user.id;
       // Update user on server
-      await updateUserSettings(userId, token, inputData)
+      await updateUserSettings(userId, token, inputData);
 
-      // Set local user to the updated user 
-      setUser(inputData)
+      // Set local user to the updated user
+      setUser(inputData);
 
       navigate("/profile");
     } catch (error) {
-      console.log("Error updating user settings: ", error)
+      console.log("Error updating user settings: ", error);
     }
-
   }
 
   return (
     <div className="user-settings">
-      <AccountHeader user={user} />
+      <AccountHeader />
 
       <form className="user-settings-form" onSubmit={handleSubmit}>
         <label htmlFor="firstName">First name</label>
@@ -45,7 +42,7 @@ function UserSettings() {
           type="text"
           name="firstName"
           onChange={handleChange}
-          value={inputData.firstName}
+          value={inputData?.firstName}
           required
         />
         <br />
@@ -56,7 +53,7 @@ function UserSettings() {
           type="text"
           name="lastName"
           onChange={handleChange}
-          value={inputData.lastName}
+          value={inputData?.lastName}
           required
         />
         <br />
@@ -67,7 +64,7 @@ function UserSettings() {
           type="email"
           name="email"
           onChange={handleChange}
-          value={inputData.email}
+          value={inputData?.email}
           required
         />
         <br />
@@ -78,7 +75,7 @@ function UserSettings() {
           type="number"
           name="phone"
           onChange={handleChange}
-          value={inputData.phone}
+          value={inputData?.phone}
           required
         />
         <br />
@@ -89,7 +86,7 @@ function UserSettings() {
           type="password"
           name="password"
           onChange={handleChange}
-          value={inputData.password}
+          value={inputData?.password}
           required
         />
         <br />
