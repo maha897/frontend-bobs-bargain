@@ -60,7 +60,6 @@ function LogInPage() {
             placeholder="Email*"
           />
           <br />
-          <br />
           <label htmlFor="password">Password</label> <br />
           <input
             type="password"
@@ -70,12 +69,11 @@ function LogInPage() {
             placeholder="Password*"
           />
           <br />
-          <br />
           <button className="button">Log in</button>
           <br />
           <p>
             No user?{" "}
-            <Link className="sign-up" to={"/signup"}>
+            <Link className="sign-up-form-link" to={"/signup"}>
               Make a new account!
             </Link>
           </p>
