@@ -6,7 +6,9 @@ function AdListItem({ ad, edit }) {
     <div className="ad-container">
       <li className="ad-li">
         {ad.title}
-        {ad.price}
+        <br />
+        {ad.price}$
+        <br />
         <div className="ad-contact-info">
           <Link to={`/listings/${ad.id}`}>
             <button>View</button>

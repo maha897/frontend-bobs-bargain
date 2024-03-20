@@ -70,7 +70,9 @@ function AdForm() {
     <div className="ad-form-container">
       <form className="ad-form" onSubmit={submitForm}>
         <div className="ad-form-product-info">
-          <h3>Product Info</h3>
+          <h2>Product Info</h2>
+          <hr></hr>
+          <br/>
           <label htmlFor="title">Title</label> <br />
           <input
             type="text"
@@ -113,6 +115,7 @@ function AdForm() {
           />
           <br />
           <br />
+          <label htmlFor="images">Images</label> <br/>
           <input
             type="file"
             name="images"
