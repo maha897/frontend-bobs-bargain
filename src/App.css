@@ -1,6 +1,5 @@
 .app {
   text-align: center;
- 
 }
 
 body {
@@ -179,7 +178,6 @@ body {
 
 .avatar-container {
   margin-right: 70px;
-  
 }
 
 .logo {
@@ -221,7 +219,7 @@ ul {
 }
 
 .add-listing {
-  color: black
+  color: black;
 }
 
 /* Animations */
@@ -261,7 +259,6 @@ ul {
   background-color: #f9f9f9;
 }
 
-
 .my-ads-link {
   margin-top: 30px;
   margin-bottom: 20px;
@@ -269,22 +266,32 @@ ul {
 
 .my-ads-link a,
 .user-settings-link a {
-  text-decoration: none; 
-  color: #333; 
-  font-size: 16px; 
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
 }
 
 .my-ads-link a:hover,
 .user-settings-link a:hover {
-  color: #666; 
+  color: #666;
   text-decoration: underline;
 }
 
+.browse-page {
+  display: flex;
+  flex-direction: column;
+  margin-top: 82px;
+}
 
 .ads-ul-container {
+  padding-top: 45px;
+  width: 100%;
+}
+
+.ads-ul {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Three columns with equal width */
-  gap: 20px; /* Gap between grid items */
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  list-style: none;
 }
 
 .ad-container {
@@ -292,13 +299,13 @@ ul {
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 40px;
-  margin: 30px;
+  margin: 20px;
   background-color: #f9f9f9;
 }
 
 .ad-container {
   opacity: 0;
-  animation: fadeInUp 1.5s ease forwards; /* Apply animation */
+  animation: fadeInUp 1.5s ease forwards;
 }
 
 @keyframes fadeInUp {
@@ -365,21 +372,23 @@ ul {
 
 .log-out-button,
 .log-in-button {
-  margin-left: 10px; 
+  margin-left: 10px;
+}
+
+.search-bar {
+  width: 400px;
 }
 
 .search-bar-container {
+  display: flex;
   width: 100%;
-  max-width: 400px; 
-  margin: 0 auto;
-}
-
-.search-bar-container {
+  justify-content: center;
+  background-color: #eae1e6;
+  transform: translateY(-20px);
+  padding-top: 10px;
+  padding-bottom: 13px;
   position: fixed;
-  left: 50%;
-  transform: translateX(-50%);
-  margin-top: 10px; 
-  z-index: 999; 
+  z-index: 999;
 }
 
 .search-bar-container form {
@@ -425,7 +434,7 @@ ul {
   margin-top: 50px;
 }
 
-.ad-form h2{
+.ad-form h2 {
   margin-top: 0;
 }
 
@@ -443,7 +452,9 @@ ul {
   width: 50%;
 }
 
-.ad-form textarea, textarea, select {
+.ad-form textarea,
+textarea,
+select {
   padding: 10px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
@@ -473,4 +484,3 @@ ul {
 .ad-form button:hover {
   background-color: #bb3e89;
 }
-
