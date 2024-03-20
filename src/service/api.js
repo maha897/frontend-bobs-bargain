@@ -52,3 +52,10 @@ export async function fetchAllListings(token) {
   });
   return response.data;
 }
+
+export async function updateUserSettings(id, token, userData) {
+  const response = await axios.put(`${BASE_URL}/users/${id}`, userData,  {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  return response.data;
+}
