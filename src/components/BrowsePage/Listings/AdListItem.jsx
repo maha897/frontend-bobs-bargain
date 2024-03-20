@@ -1,29 +1,20 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-function AdListItem({ ad, edit, index }) {
+function AdListItem({ ad,  index }) {
   // Fade in delay on ads:
   const animationDelay = `${index * 0.3}s`
   
   return (
     <div className="ad-container" style={ {animationDelay}}>
       <li className="ad-li">
-        {ad.title}
-        <br />
-        {ad.price}$
-        <br />
+        <p>{ad.title}</p>
+        <p>{ad.price}$</p>
         <div className="ad-contact-info">
           <Link to={`/listings/${ad.id}`}>
             <button>View</button>
           </Link>
         </div>
-        {edit && (
-          <div>
-            <Link to={`/listings/${ad.id}/edit`}>
-              <button className="edit-ad-button">Edit</button>
-            </Link>
-          </div>
-        )}
       </li>
     </div>
   );

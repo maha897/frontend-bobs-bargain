@@ -385,12 +385,13 @@ ul {
   display: flex;
   width: 100%;
   justify-content: center;
-  background-color: #eae1e6;
+  background-color: #eee;
   transform: translateY(-20px);
-  padding-top: 10px;
-  padding-bottom: 13px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   position: fixed;
   z-index: 999;
+  border: 1px solid #ccc;
 }
 
 .search-bar-container form {
@@ -512,4 +513,22 @@ input[type=text] {
 
 .ad-form select {
   width: 52%;
+}
+
+
+.ad-li button {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #ce4c9a;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  margin-top: 20px;
+}
+
+.ad-li button:hover {
+  background-color: #bb3e89;
 }
