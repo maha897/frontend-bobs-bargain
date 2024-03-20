@@ -19,8 +19,8 @@ function Header() {
 
   return (
     <header className="header">
-      <Link to={"/"}>
-        <h1 className="logo">Bob's Bargain</h1>
+      <Link className="logo" to={"/"}>
+        <h1 >Bob's Bargain</h1>
       </Link>
       {!user ? (
         <div className="login">

@@ -9,7 +9,7 @@ function AccountHeader() {
       <h2>Account</h2>
       <Avatar name={`${user?.firstName} ${user?.lastName}`} round={true} />
       <h3>{`${user?.firstName} ${user?.lastName}`}</h3>
-      <p>{user?.email}</p>
+      <h4>{user?.email}</h4>
       <hr></hr>
     </div>
   );

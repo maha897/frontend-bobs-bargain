@@ -38,31 +38,34 @@ function AdView() {
   }
 
   return (
-    <div className="ad-view-container">
-      <h2>Detailed add</h2>
-      <p>{ad.title}</p>
+    <div className="ad-view-page">
+      <div className="ad-view-container">
+        <div className="product-info">
+          <h2>{ad.title}</h2>
+          <hr></hr>
+          <p>Category: {ad.category}</p>
 
-      <p>Category: {ad.category}</p>
+          <p>Description: {ad.description}</p>
 
-      <p>Description: {ad.description}</p>
-
-      {/* {ad.images.length > 0 && (
+          {/* {ad.images.length > 0 && (
             <div className="ad-images">
                 {ad.images.map((image, index) => (
                     <img key={index} src="" alt="" />
                 ))}
             </div>
         )} */}
-
-      <div className="ad-contact-info">
-        <p>
-          Contact person: {user.firstName} {user.lastName}
-        </p>
-        <p>Email:{user.email}</p>
-        <p>Phone:{user.phone}</p>
-        <p>Postcode: {ad.postcode}</p>
-        <p>Address: {ad.address}</p>
-        <p>City: {ad.city}</p>
+        </div>
+        <hr></hr>
+        <div className="ad-contact-info">
+          <p>
+            Contact person: {user.firstName} {user.lastName}
+          </p>
+          <p>Email:{user.email}</p>
+          <p>Phone:{user.phone}</p>
+          <p>Postcode: {ad.postcode}</p>
+          <p>Address: {ad.address}</p>
+          <p>City: {ad.city}</p>
+        </div>
         {userId === ad.user.id && (
           <Link to={`/listings/${ad.id}/edit`}>
             <button className="edit-ad-button">Edit</button>

@@ -3,7 +3,8 @@ import AccountHeader from "./AccountHeader";
 
 function UserPage() {
   return (
-    <div className="user-page-container">
+    <div className="user-page">
+      <div className="user-page-container">
       <AccountHeader />
       <div className="my-ads-link">
         <Link to={"/profile/items"}>My Ads</Link>
@@ -12,7 +13,9 @@ function UserPage() {
         <Link to={"/profile/settings"}>User Settings</Link>
       </div>
     </div>
-  );
+    </div>
+    
+  ); 
 }
 
 export default UserPage;
