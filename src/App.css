@@ -296,7 +296,8 @@ ul {
   background-color: #f9f9f9;
 }
 
-.ad-li {
+.ad-container {
+  opacity: 0;
   animation: fadeInUp 1.5s ease forwards; /* Apply animation */
 }
 
