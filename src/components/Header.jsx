@@ -37,18 +37,16 @@ function Header() {
         <div className="avatar-container">
           <Link className="log-in" to={"/listings/create"}>
             <button className="log-out-button">
-              <FiPlus
-                size={15}
-              />{" "}
-              New listing
+              <FiPlus size={15} /> New listing
             </button>
           </Link>
-          
+
           <button className="log-out-button" onClick={handleLogOut}>
             Log out
           </button>
           <Link to={"/profile"}>
             <Avatar
+              className="avatar"
               name={`${user.firstName} ${user.lastName}`}
               size={40}
               round={true}
