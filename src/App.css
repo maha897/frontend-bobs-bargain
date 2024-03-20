@@ -174,12 +174,12 @@ body {
 }
 
 .log-in {
-  margin-right: 70px;
   color: #71104c;
 }
 
 .avatar-container {
   margin-right: 70px;
+  
 }
 
 .logo {
@@ -205,7 +205,7 @@ body {
   border-radius: 5px;
   transition: background-color 0.3s ease;
   margin-top: 10px;
-  margin-left: 15px;
+  margin-right: 15px;
 }
 
 .log-out-button:hover {
@@ -357,3 +357,12 @@ ul {
   background-color: #bb3e89;
 }
 
+.avatar-container {
+  display: flex;
+  align-items: center;
+}
+
+.log-out-button,
+.log-in-button {
+  margin-left: 10px; /* Adjust margin as needed */
+}
