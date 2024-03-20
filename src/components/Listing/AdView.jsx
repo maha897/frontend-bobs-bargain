@@ -52,18 +52,7 @@ function AdView() {
       <div className="ad-view-container">
         <div className="product-info">
           <h2>{ad.title}</h2>
-          <hr></hr>
-          <p>Category: {ad.category}</p>
-
-          <p>Description: {ad.description}</p>
-
-          {/* {ad.images.length > 0 && (
-            <div className="ad-images">
-                {ad.images.map((image, index) => (
-                    <img key={index} src="" alt="" />
-                ))}
-            </div>
-        )} */}
+          <p>{ad.description}</p>
         </div>
         <hr></hr>
         <div className="ad-contact-info">
@@ -78,7 +67,7 @@ function AdView() {
         </div>
         {userId === ad.user.id && (
           <>
-          <hr></hr>
+            <hr></hr>
             <Link to={`/listings/${ad.id}/edit`}>
               <button className="edit-ad-button">Edit</button>
             </Link>
