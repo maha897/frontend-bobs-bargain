@@ -415,6 +415,7 @@ ul {
   position: fixed;
   z-index: 999;
   border: 1px solid #ccc;
+  gap: 20px;
 }
 
 .search-bar-container form {
@@ -553,4 +554,9 @@ input[type="text"] {
 
 .ad-li button:hover {
   background-color: #bb3e89;
+}
+
+.category-select {
+  width: 300px;
+  margin: 0;
 }

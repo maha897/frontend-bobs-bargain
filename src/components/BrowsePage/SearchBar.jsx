@@ -14,6 +14,7 @@ function SearchBar({ setFilteredAds }) {
       // If no category is selected, fetch all listings
       fetchAllListings(token).then((data) => setFilteredAds(data));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedCategory]); // Fetch filtered ads whenever the selected category changes
 
   const fetchFilteredAds = async (category) => {
@@ -37,8 +38,9 @@ function SearchBar({ setFilteredAds }) {
           value={selectedCategory}
           onChange={(event) => setSelectedCategory(event.target.value)}
           name="category"
+          className="category-select"
         >
-          <option value="">All ads</option>
+          <option value="">All</option>
           <option value="electronics">Electronics and appliances</option>
           <option value="clothing">Clothing and cosmetics</option>
           <option value="furniture">Furniture and interior</option>
