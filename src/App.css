@@ -271,3 +271,18 @@ ul {
   color: #666; 
   text-decoration: underline;
 }
+
+.ad-li {
+  animation: fadeInUp 1.5s ease forwards; /* Apply animation */
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
