@@ -52,58 +52,55 @@ function SignUpPage() {
         <h2>Sign up</h2>
         <div className="line-div">
           <hr></hr>
-          <br />
         </div>
         <form className="signup-form" onSubmit={submitForm}>
-          <label htmlFor="firstName">First name</label> <br />
-          <input
-            type="text"
-            name="firstName"
-            onChange={handleChange}
-            value={inputData.firstName}
-            required
-            placeholder="First name*"
-          />
-          <label htmlFor="lastName">Last name</label> <br />
-          <input
-            type="text"
-            name="lastName"
-            onChange={handleChange}
-            value={inputData.lastName}
-            required
-            placeholder="Last name*"
-          />
-          <label htmlFor="email">Email</label> <br />
+          <div className="name-field">
+            <input
+              type="text"
+              name="firstName"
+              className="first-name-input"
+              onChange={handleChange}
+              value={inputData.firstName}
+              required
+              placeholder="First name"
+            />
+            <input
+              type="text"
+              name="lastName"
+              onChange={handleChange}
+              value={inputData.lastName}
+              required
+              placeholder="Last name"
+            />
+          </div>
           <input
             type="email"
             name="email"
             onChange={handleChange}
             value={inputData.email}
             required
-            placeholder="Email*"
+            placeholder="Email"
           />
-          <label htmlFor="phone">Phone</label> <br />
           <input
             type="number"
             name="phone"
             onChange={handleChange}
             value={inputData.phone}
             required
-            placeholder="Phone*"
+            placeholder="Phone"
           />
-          <label htmlFor="password">Password</label> <br />
           <input
             type="password"
             name="password"
             onChange={handleChange}
             value={inputData.password}
             required
-            placeholder="Password*"
+            placeholder="Password"
           />
-          <br />
-          <br />
+          <br/>
           <button type="submit">Create user</button>
         </form>
+        <br/>
         <p>
           Already have an account?{" "}
           <Link className="sign-up-form-link" to={"/login"}>

@@ -142,6 +142,15 @@ body {
   color: #333333;
 }
 
+.name-field {
+  display: flex;
+  gap: 10px;
+}
+
+.first-name-input {
+  flex: 0 0 35%;
+}
+
 .login-form-container h2 {
   margin-bottom: 20px;
   color: #333333;
