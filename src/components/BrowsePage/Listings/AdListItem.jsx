@@ -1,36 +1,22 @@
 import PropTypes from "prop-types";
-import { useContext } from "react";
-import { Context } from "../../../App";
 import { Link } from "react-router-dom";
 
 function AdListItem({ ad, edit }) {
-  const { ads, setAds } = useContext(Context);
-
-  function handleClick() {
-    const updatedAd = { ...ad, sold: true };
-
-    const updatedAds = ads.map((a) => (a.id == ad.id ? updatedAd : a));
-
-    setAds(updatedAds);
-  }
-
   return (
     <div className="ad-container">
       <li className="ad-li">
         {ad.title}
         {ad.price}
-        {!edit && (
-          <div className="ad-contact-info">
-            <Link to={`/listings/${ad.id}`}>
-              <button>View</button>
-            </Link>
-          </div>
-        )}
+        <div className="ad-contact-info">
+          <Link to={`/listings/${ad.id}`}>
+            <button>View</button>
+          </Link>
+        </div>
         {edit && (
           <div>
-            {ad.sold ? <p>Status: Sold</p> : <p>Status: Active</p>}
-            {!ad.sold && <button onClick={handleClick}>Mark as sold</button>}
-            <button className="edit-ad-button">Edit</button>
+            <Link to={`/listings/${ad.id}/edit`}>
+              <button className="edit-ad-button">Edit</button>
+            </Link>
           </div>
         )}
       </li>

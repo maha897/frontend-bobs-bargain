@@ -3,11 +3,11 @@ import { useContext, useEffect, useState } from "react";
 import { Context } from "../../App";
 import { useParams } from "react-router-dom";
 import { fetchListing, fetchUser } from "../../service/api";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { FiLoader } from "react-icons/fi";
 
 function AdView() {
-  const { token } = useContext(Context);
+  const { token, userId } = useContext(Context);
   const { id } = useParams();
 
   const [ad, setAd] = useState(null);
@@ -66,6 +66,11 @@ function AdView() {
           <p>Address: {ad.address}</p>
           <p>City: {ad.city}</p>
         </div>
+        {userId === ad.user.id && (
+          <Link to={`/listings/${ad.id}/edit`}>
+            <button className="edit-ad-button">Edit</button>
+          </Link>
+        )}
       </div>
     </div>
   );
