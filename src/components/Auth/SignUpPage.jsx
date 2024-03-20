@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { Context } from "../../App";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { signup, login } from "../../service/api";
 
 const initForm = {
@@ -104,6 +104,12 @@ function SignUpPage() {
           <br />
           <button type="submit">Create user</button>
         </form>
+        <p>
+          Already have an account?{" "}
+          <Link className="sign-up-form-link" to={"/login"}>
+            Log in
+          </Link>
+        </p>
       </div>
     </div>
   );
