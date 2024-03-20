@@ -8,9 +8,9 @@ export async function login({ email, password }) {
       email,
       password,
     });
-    return response;
+    return response.data;
   } catch (error) {
-    console.error("Login error:", error);
+    console.error("Login error:", error.response);
     throw error;
   }
 }
@@ -24,10 +24,9 @@ export async function signup({ email, password, phone, firstName, lastName }) {
       firstName,
       lastName,
     });
-    const userData = response;
-    return userData;
+    return response.data;
   } catch (error) {
-    console.error("Signup error:", error);
+    console.error("Signup error:", error.response);
     throw error;
   }
 }
@@ -36,7 +35,7 @@ export async function fetchUser(id, token) {
   const response = await axios.get(`${BASE_URL}/users/${id}`, {
     headers: { Authorization: `Bearer ${token}` },
   });
-  return response;
+  return response.data;
 }
 
 export async function fetchUsers(token) {

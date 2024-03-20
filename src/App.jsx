@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useLayoutEffect, useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import { fetchUser } from "./service/api";
@@ -12,19 +12,18 @@ function App() {
   const [token, setToken] = useState(localStorage.getItem("token") || "");
   const navigate = useNavigate();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     async function init() {
       if (token && userId) {
         console.log("Stored Token: " + token);
         console.log("Stored user ID: " + userId);
-
-        const userResponse = await fetchUser(userId, token);
-        if (userResponse.status == 200) {
-          setUser(userResponse.data);
+        try {
+          const userResponse = await fetchUser(userId, token);
+          setUser(userResponse);
           console.log("Logged in");
           // Give full access
-        } else {
-          console.error("User not authenticated/found");
+        } catch (error) {
+          console.error("User not authenticated/found", error);
           localStorage.setItem("token", "");
           localStorage.setItem("id", "");
           setUser(null);
@@ -44,7 +43,7 @@ function App() {
     }
 
     init();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

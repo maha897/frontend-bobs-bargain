@@ -16,25 +16,24 @@ function LogInPage() {
   async function logIn(event) {
     event.preventDefault();
 
-    const loginResponse = await login(inputData);
-    console.log("Logging in...")
+    try {
+      const loginResponse = await login(inputData);
+      console.log("Logging in...");
 
-    // FIXME: Trycatch instead to be able to print the error
-    if (loginResponse.status == 200) {
-      const fetchedToken = loginResponse.data.token
-      const fetchedId = loginResponse.data.id
-      setToken(fetchedToken)
-      setUserId(fetchedId)
-      localStorage.setItem('token', fetchedToken)
-      localStorage.setItem('id', fetchedId)
+      const fetchedToken = loginResponse.token;
+      const fetchedId = loginResponse.id;
+      setToken(fetchedToken);
+      setUserId(fetchedId);
+      localStorage.setItem("token", fetchedToken);
+      localStorage.setItem("id", fetchedId);
 
       const userResponse = await fetchUser(fetchedId, fetchedToken);
-      setUser(userResponse.data)
+      setUser(userResponse);
 
-      console.log("Logged in")
-      navigate("/")
-    } else {
-      console.error("Could not login")
+      console.log("Logged in");
+      navigate("/");
+    } catch (error) {
+      console.error("Could not login: ", error);
     }
   }
 
