@@ -4,7 +4,7 @@ import SearchBar from "./SearchBar";
 import { Context } from "../../App";
 import { fetchAllListings } from "../../service/api";
 
-function BrowsePage() {
+export default function BrowsePage() {
   const [listings, setListings] = useState([]);
   const { token } = useContext(Context);
 
@@ -21,10 +21,8 @@ function BrowsePage() {
 
   return (
     <div className="browse-page">
-      <SearchBar />
+      <SearchBar setFilteredAds={setListings}/>
       <AdsList ads={listings} />
     </div>
   );
 }
-
-export default BrowsePage;
