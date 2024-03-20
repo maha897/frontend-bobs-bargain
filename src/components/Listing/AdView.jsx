@@ -4,6 +4,7 @@ import { Context } from "../../App";
 import { useParams } from "react-router-dom";
 import { fetchListing, fetchUser } from "../../service/api";
 import { useNavigate } from "react-router-dom";
+import { FiLoader } from "react-icons/fi";
 
 function AdView() {
   const { token } = useContext(Context);
@@ -33,7 +34,7 @@ function AdView() {
   }, [id]);
 
   if (!ad || !user) {
-    return <div>Loading...</div>;
+    return <FiLoader className="spin" />;
   }
 
   return (
