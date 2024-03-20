@@ -45,6 +45,13 @@ export async function fetchUsers(token) {
   return response.data;
 }
 
+export async function fetchListing(listingId, token) {
+  const response = await axios.get(`${BASE_URL}/listings/${listingId}`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  return response.data;
+}
+
 export async function fetchAllListings(token) {
   const response = await axios.get(`${BASE_URL}/listings`, {
     headers: { Authorization: `Bearer ${token}` },
