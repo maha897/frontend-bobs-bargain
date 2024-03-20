@@ -2,9 +2,10 @@ import { useContext, useState } from "react";
 import { Context } from "../../App";
 import { useNavigate } from "react-router-dom";
 import AccountHeader from "./AccountHeader";
+import { updateUserSettings } from "../../service/api";
 
 function UserSettings() {
-  const { user } = useContext(Context);
+  const { user, setUser, token } = useContext(Context);
   const [inputData, setInputData] = useState(user);
   const navigate = useNavigate();
 
@@ -13,12 +14,24 @@ function UserSettings() {
     setInputData({ ...inputData, [name]: value });
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
 
     // TODO: PUT REQUEST
 
-    navigate("/profile");
+    try{
+      const userId = user.id
+      // Update user on server
+      await updateUserSettings(userId, token, inputData)
+
+      // Set local user to the updated user 
+      setUser(inputData)
+
+      navigate("/profile");
+    } catch (error) {
+      console.log("Error updating user settings: ", error)
+    }
+
   }
 
   return (
