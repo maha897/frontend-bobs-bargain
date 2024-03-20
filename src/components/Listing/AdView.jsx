@@ -78,6 +78,7 @@ function AdView() {
         </div>
         {userId === ad.user.id && (
           <>
+          <hr></hr>
             <Link to={`/listings/${ad.id}/edit`}>
               <button className="edit-ad-button">Edit</button>
             </Link>

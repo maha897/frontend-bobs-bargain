@@ -80,6 +80,7 @@ function AdForm() {
             onChange={handleChange}
             value={inputData.title}
             required
+            placeholder="Title*"
           />
           <br />
           <br />
@@ -88,6 +89,7 @@ function AdForm() {
             name="description"
             onChange={handleChange}
             value={inputData.description}
+            placeholder="Description..."
           ></textarea>{" "}
           <br />
           <br />
@@ -134,6 +136,7 @@ function AdForm() {
             onChange={handleChange}
             value={inputData.address}
             required
+            placeholder="Address*"
           />{" "}
           <br />
           <br />
@@ -144,6 +147,7 @@ function AdForm() {
             onChange={handleChange}
             value={inputData.city}
             required
+            placeholder="City*"
           />{" "}
           <br /> <br />
           <label htmlFor="postcode">Post code</label> <br />
@@ -153,6 +157,7 @@ function AdForm() {
             onChange={handleChange}
             value={inputData.postcode}
             required
+            placeholder="Post code*"
           />{" "}
           <br /> <br />
         </div>
