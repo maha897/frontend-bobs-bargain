@@ -39,11 +39,14 @@ function Header() {
             <button className="log-out-button">
               <FiPlus
                 size={15}
-                style={{paddingBottom: "4px", verticalAlign: 'middle' }}
               />{" "}
               New listing
             </button>
           </Link>
+          
+          <button className="log-out-button" onClick={handleLogOut}>
+            Log out
+          </button>
           <Link to={"/profile"}>
             <Avatar
               name={`${user.firstName} ${user.lastName}`}
@@ -51,10 +54,6 @@ function Header() {
               round={true}
             />
           </Link>
-
-          <button className="log-out-button" onClick={handleLogOut}>
-            Log out
-          </button>
         </div>
       )}
     </header>
