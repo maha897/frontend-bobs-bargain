@@ -51,3 +51,31 @@ export async function fetchAllListings(token) {
   });
   return response.data;
 }
+
+export async function putListing(
+  { title, description, price, sold, address, city, postcode },
+  listingId,
+  token
+) {
+  try {
+    const response = await axios.put(
+      `${BASE_URL}/listings/${listingId}`,
+      {
+        title,
+        description,
+        price,
+        sold,
+        address,
+        city,
+        postcode,
+      },
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    );
+    return response.data;
+  } catch (error) {
+    console.error(`Error updating listing [${listingId}]: `, error.response);
+    throw error;
+  }
+}
