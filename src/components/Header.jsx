@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../App";
 import { FiPlus } from "react-icons/fi";
 import Avatar from "react-avatar";
+import logo from "../assets/logo.png";
 
 /* eslint-disable react/no-unescaped-entities */
 function Header() {
@@ -21,6 +22,7 @@ function Header() {
   return (
     <header className="header">
       <Link className="logo" to={"/"}>
+        <img src={logo} className="header-logo" />
         <h1>Bob's Bargain</h1>
       </Link>
       {!user ? (

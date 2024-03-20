@@ -198,9 +198,16 @@ body {
 }
 
 .logo {
-  margin-left: 40px;
+  margin-left: 8px;
   color: #eae1e6;
   text-decoration: none;
+  display: flex;
+}
+
+.header-logo {
+  padding-top: 17px;
+  padding-right: 15px;
+  max-height: 40px;
 }
 
 .login {
