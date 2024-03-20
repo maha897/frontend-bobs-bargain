@@ -22,6 +22,8 @@
   border-radius: 10px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  margin-bottom: 50px;
+  margin-top: 25px;
 }
 
 .login-form {
@@ -87,6 +89,7 @@
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   margin-bottom: 50px;
+  margin-top: 25px;
 }
 
 .signup-form {
@@ -150,7 +153,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #71104c;
+  background-color: #eae1e6;
   padding: 1px 20px;
   position: fixed;
   top: 0;
@@ -176,9 +179,41 @@
 
 .logo {
   margin-left: 40px;
-  color: #fff;
+  color: #71104c;
 }
 
 .login {
   color: #fff;
 }
+
+/* ======================== */
+
+.log-out-button {
+  background-color: #ce4c9a;
+  color: white; 
+  border: none; 
+  padding: 10px 15px; 
+  text-align: center;
+  display: inline-block; 
+  font-size: 16px; 
+  cursor: pointer;
+  border-radius: 5px; 
+  transition: background-color 0.3s ease; 
+  margin-top: 10px; 
+  margin-left: 15px;
+}
+
+.log-out-button:hover {
+  background-color: #bb3e89;  
+}
+
+.log-out-button:focus {
+  outline: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+
+

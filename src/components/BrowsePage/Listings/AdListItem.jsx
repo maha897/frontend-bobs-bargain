@@ -18,7 +18,6 @@ function AdListItem({ ad, edit }) {
     <div className="ad-container">
       <li className="ad-li">
         {ad.title}
-        {/* {ad.description} */}
         {ad.price}
         {!edit && (
           <div className="ad-contact-info">
