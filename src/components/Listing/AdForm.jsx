@@ -1,11 +1,14 @@
 import { useContext, useState } from "react";
 import { Context } from "../../App";
+import { createListing } from "../../service/api";
+import { useNavigate } from "react-router-dom";
 
 function AdForm() {
-  const { ads, setAds, userLoggedIn } = useContext(Context);
+  const { token, userId } = useContext(Context);
+  const navigate = useNavigate();
 
   const initForm = {
-    userId: userLoggedIn.id,
+    userId: userId,
     title: "",
     description: "",
     category: "other",
@@ -21,25 +24,18 @@ function AdForm() {
 
   function submitForm(event) {
     event.preventDefault();
-    setAds([...ads, inputData]);
-    setInputData(initForm);
 
-    /*
-    event.preventDefault()
-
-    fetch("https://boolean-api-server.fly.dev/maha897/contact", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(inputData)
-        })
-            .then((response) => response.json())
-            .then(
-              // ...
-            ).catch((error) => console.error("Error publishing ad: ", error))
+    async function queryCreation() {
+      try {
+        const putResponse = await createListing(inputData, token);
+        console.log("Created listing!");
+        navigate(`/listings/${putResponse.id}`);
+      } catch (error) {
+        console.error(`Error creating listing: `, inputData, error.response);
+      }
     }
-  */
+
+    queryCreation();
   }
 
   function handleChange(event) {
@@ -51,18 +47,18 @@ function AdForm() {
     const file = event.target.files[0];
     const reader = new FileReader();
 
-    reader.onload = function(event) {
-        const byteArray = new Uint8Array(event.target.result);
-        console.log(byteArray)
-        setInputData({
-          ...inputData,
-          images: [...inputData.images, byteArray],
-        });
-    }
+    reader.onload = function (event) {
+      const byteArray = new Uint8Array(event.target.result);
+      console.log(byteArray);
+      setInputData({
+        ...inputData,
+        images: [...inputData.images, byteArray],
+      });
+    };
 
     reader.readAsArrayBuffer(file);
   }
-    /*
+  /*
     console.log(event.target.files)
     setInputData({
       ...inputData,

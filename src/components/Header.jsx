@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../App";
+import { FiPlus } from "react-icons/fi";
 import Avatar from "react-avatar";
 
 /* eslint-disable react/no-unescaped-entities */
@@ -20,7 +21,7 @@ function Header() {
   return (
     <header className="header">
       <Link className="logo" to={"/"}>
-        <h1 >Bob's Bargain</h1>
+        <h1>Bob's Bargain</h1>
       </Link>
       {!user ? (
         <div className="login">
@@ -34,10 +35,19 @@ function Header() {
         </div>
       ) : (
         <div className="avatar-container">
+          <Link className="log-in" to={"/listings/create"}>
+            <button className="log-out-button">
+              <FiPlus
+                size={15}
+                style={{paddingBottom: "4px", verticalAlign: 'middle' }}
+              />{" "}
+              New listing
+            </button>
+          </Link>
           <Link to={"/profile"}>
             <Avatar
               name={`${user.firstName} ${user.lastName}`}
-              size={50}
+              size={40}
               round={true}
             />
           </Link>

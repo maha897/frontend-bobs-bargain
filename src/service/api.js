@@ -87,8 +87,15 @@ export async function putListing(
   }
 }
 
+export async function createListing(listingData, token) {
+  const response = await axios.post(`${BASE_URL}/listings`, listingData, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  return response.data;
+}
+
 export async function updateUserSettings(id, token, userData) {
-  const response = await axios.put(`${BASE_URL}/users/${id}`, userData,  {
+  const response = await axios.put(`${BASE_URL}/users/${id}`, userData, {
     headers: { Authorization: `Bearer ${token}` },
   });
   return response.data;
