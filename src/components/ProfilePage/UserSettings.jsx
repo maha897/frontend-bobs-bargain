@@ -2,9 +2,10 @@ import { useContext, useState } from "react";
 import { Context } from "../../App";
 import { useNavigate } from "react-router-dom";
 import AccountHeader from "./AccountHeader";
+import { updateUserSettings } from "../../service/api";
 
 function UserSettings() {
-  const { user } = useContext(Context);
+  const { user, setUser, token } = useContext(Context);
   const [inputData, setInputData] = useState(user);
   const navigate = useNavigate();
 
@@ -13,17 +14,26 @@ function UserSettings() {
     setInputData({ ...inputData, [name]: value });
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
 
-    // TODO: PUT REQUEST
+    try {
+      const userId = user.id;
+      // Update user on server
+      await updateUserSettings(userId, token, inputData);
 
-    navigate("/profile");
+      // Set local user to the updated user
+      setUser(inputData);
+
+      navigate("/profile");
+    } catch (error) {
+      console.log("Error updating user settings: ", error);
+    }
   }
 
   return (
     <div className="user-settings">
-      <AccountHeader user={user} />
+      <AccountHeader />
 
       <form className="user-settings-form" onSubmit={handleSubmit}>
         <label htmlFor="firstName">First name</label>
@@ -32,7 +42,7 @@ function UserSettings() {
           type="text"
           name="firstName"
           onChange={handleChange}
-          value={inputData.firstName}
+          value={inputData?.firstName}
           required
         />
         <br />
@@ -43,7 +53,7 @@ function UserSettings() {
           type="text"
           name="lastName"
           onChange={handleChange}
-          value={inputData.lastName}
+          value={inputData?.lastName}
           required
         />
         <br />
@@ -54,7 +64,7 @@ function UserSettings() {
           type="email"
           name="email"
           onChange={handleChange}
-          value={inputData.email}
+          value={inputData?.email}
           required
         />
         <br />
@@ -65,7 +75,7 @@ function UserSettings() {
           type="number"
           name="phone"
           onChange={handleChange}
-          value={inputData.phone}
+          value={inputData?.phone}
           required
         />
         <br />
@@ -76,7 +86,7 @@ function UserSettings() {
           type="password"
           name="password"
           onChange={handleChange}
-          value={inputData.password}
+          value={inputData?.password}
           required
         />
         <br />

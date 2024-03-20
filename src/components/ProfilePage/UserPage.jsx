@@ -1,14 +1,10 @@
 import { Link } from "react-router-dom";
 import AccountHeader from "./AccountHeader";
-import { Context } from "../../App";
-import { useContext } from "react";
 
 function UserPage() {
-  const { user } = useContext(Context);
-
   return (
     <div className="user-page-container">
-      <AccountHeader user={user} />
+      <AccountHeader />
       <div className="my-ads-link">
         <Link to={"/profile/items"}>My Ads</Link>
       </div>

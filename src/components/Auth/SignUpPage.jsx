@@ -22,18 +22,18 @@ function SignUpPage() {
     try {
       const signupResponse = await signup(inputData);
       console.log(inputData);
-      setUser(signupResponse.data);
+      setUser(signupResponse);
       // Get token and id
       const loginResponse = await login({
         email: inputData.email,
         password: inputData.password,
       });
       // Set state
-      setToken(loginResponse.data.token);
-      setUserId(loginResponse.data.id);
+      setToken(loginResponse.token);
+      setUserId(loginResponse.id);
       // Set localstorage
-      localStorage.setItem("token", loginResponse.data.token);
-      localStorage.setItem("id", loginResponse.data.id);
+      localStorage.setItem("token", loginResponse.token);
+      localStorage.setItem("id", loginResponse.id);
       // Go to main view
       navigate("/");
     } catch (error) {
@@ -52,7 +52,7 @@ function SignUpPage() {
         <h2>Sign up</h2>
         <div className="line-div">
           <hr></hr>
-          <br/>
+          <br />
         </div>
         <form className="signup-form" onSubmit={submitForm}>
           <label htmlFor="firstName">First name</label> <br />
@@ -64,7 +64,6 @@ function SignUpPage() {
             required
             placeholder="First name*"
           />
-          
           <label htmlFor="lastName">Last name</label> <br />
           <input
             type="text"
@@ -83,7 +82,6 @@ function SignUpPage() {
             required
             placeholder="Email*"
           />
-         
           <label htmlFor="phone">Phone</label> <br />
           <input
             type="number"
