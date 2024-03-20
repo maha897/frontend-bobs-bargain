@@ -182,6 +182,10 @@ body {
   margin-right: 70px;
 }
 
+.avatar {
+  margin-top: 3px;
+}
+
 .logo {
   margin-left: 40px;
   color: #eae1e6;
