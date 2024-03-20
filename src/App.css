@@ -389,6 +389,7 @@ ul {
   padding-bottom: 13px;
   position: fixed;
   z-index: 999;
+  gap: 20px;
 }
 
 .search-bar-container form {
@@ -483,4 +484,9 @@ select {
 
 .ad-form button:hover {
   background-color: #bb3e89;
+}
+
+.category-select {
+  width: 300px;
+  margin: 0;
 }
