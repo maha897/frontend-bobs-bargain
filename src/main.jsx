@@ -15,6 +15,7 @@ import MyAds from "./components/ProfilePage/MyAds.jsx";
 import UserSettings from "./components/ProfilePage/UserSettings.jsx";
 import AdView from "./components/Listing/AdView.jsx";
 import AdEdit from "./components/Listing/AdEdit.jsx";
+import AdForm from "./components/Listing/AdForm.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <HashRouter>
@@ -24,6 +25,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route index element={<BrowsePage />} />
           <Route path="login" element={<LogInPage />} />
           <Route path="signup" element={<SignUpPage />} />
+          <Route path="listings/create" element={<AdForm />} />
           <Route path="listings/:id" element={<AdView />} />
           <Route path="listings/:id/edit" element={<AdEdit />} />
           <Route path="profile" element={<UserPage />} />
