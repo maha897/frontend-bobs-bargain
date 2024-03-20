@@ -94,6 +94,13 @@ export async function createListing(listingData, token) {
   return response.data;
 }
 
+export async function deleteListing(id, token) {
+  const response = await axios.delete(`${BASE_URL}/listings/${id}`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  return response.data;
+}
+
 export async function updateUserSettings(id, token, userData) {
   const response = await axios.put(`${BASE_URL}/users/${id}`, userData, {
     headers: { Authorization: `Bearer ${token}` },

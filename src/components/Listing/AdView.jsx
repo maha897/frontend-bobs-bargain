@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { useContext, useEffect, useState } from "react";
 import { Context } from "../../App";
 import { useParams } from "react-router-dom";
-import { fetchListing, fetchUser } from "../../service/api";
+import { deleteListing, fetchListing, fetchUser } from "../../service/api";
 import { useNavigate, Link } from "react-router-dom";
 import { FiLoader } from "react-icons/fi";
 
@@ -32,6 +32,16 @@ function AdView() {
     init();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
+
+  async function handleDeleteListing() {
+    try {
+      const deleteResponse = await deleteListing(id, token);
+      console.log("Deleted listing: ", deleteResponse);
+      navigate("/");
+    } catch (error) {
+      console.error("Could not delete listing: ", error.response);
+    }
+  }
 
   if (!ad || !user) {
     return <FiLoader className="spin" />;
@@ -67,9 +77,14 @@ function AdView() {
           <p>City: {ad.city}</p>
         </div>
         {userId === ad.user.id && (
-          <Link to={`/listings/${ad.id}/edit`}>
-            <button className="edit-ad-button">Edit</button>
-          </Link>
+          <>
+            <Link to={`/listings/${ad.id}/edit`}>
+              <button className="edit-ad-button">Edit</button>
+            </Link>
+            <button className="edit-ad-button" onClick={handleDeleteListing}>
+              Delete
+            </button>
+          </>
         )}
       </div>
     </div>
