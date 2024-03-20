@@ -19,13 +19,15 @@ function Header() {
 
   return (
     <header className="header">
-      <h1 className="logo">Bob's Bargain</h1>
+      <Link to={"/"}>
+        <h1 className="logo">Bob's Bargain</h1>
+      </Link>
       {!user ? (
         <div className="login">
           <Link className="sign-up" to={"/signup"}>
             Sign up
-          </Link>
-          {" "}|{" "}
+          </Link>{" "}
+          |{" "}
           <Link className="log-in" to={"/login"}>
             Log in
           </Link>

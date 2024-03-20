@@ -13,6 +13,7 @@ import SignUpPage from "./components/Auth/SignUpPage.jsx"
 import UserPage from "./components/ProfilePage/UserPage.jsx";
 import MyAds from "./components/ProfilePage/MyAds.jsx";
 import UserSettings from "./components/ProfilePage/UserSettings.jsx";
+import AdEdit from "./components/Listing/AdEdit.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <HashRouter>
@@ -25,6 +26,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="profile" element={<UserPage />} />
           <Route path="profile/items" element={<MyAds />} />
           <Route path="profile/settings" element={<UserSettings />} />
+          <Route path="ad/:id/edit" element={<AdEdit />} />
         </Route>
       </Routes>
     </React.StrictMode>

@@ -30,6 +30,7 @@ function AdListItem({ ad, edit }) {
           <div>
             {ad.sold ? <p>Status: Sold</p> : <p>Status: Active</p>}
             {!ad.sold && <button onClick={handleClick}>Mark as sold</button>}
+            <button className="edit-ad-button">Edit</button>
           </div>
         )}
       </li>
