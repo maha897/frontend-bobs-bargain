@@ -11,7 +11,7 @@ function AdsList({ ads }) {
         {ads.map(
           (ad, index) =>
             !ad.sold && (
-              <AdListItem key={index} ad={ad} edit={ad.user.id === userId} />
+              <AdListItem key={index} ad={ad} edit={ad.user.id === userId} index={index} />
             )
         )}
       </ul>
@@ -22,6 +22,7 @@ function AdsList({ ads }) {
 AdsList.propTypes = {
   ads: PropTypes.array,
   edit: PropTypes.bool,
+  index: PropTypes.number,
 };
 
 export default AdsList;
