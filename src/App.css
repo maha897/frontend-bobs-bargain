@@ -61,7 +61,7 @@
 }
 
 .sign-up {
-  color: #fff;
+  color: #71104c;
   text-decoration: none;
 }
 
@@ -170,7 +170,7 @@
 
 .log-in {
   margin-right: 70px;
-  color: #fff;
+  color: #71104c;
 }
 
 .avatar-container {
@@ -180,10 +180,11 @@
 .logo {
   margin-left: 40px;
   color: #71104c;
+  text-decoration: none;
 }
 
 .login {
-  color: #fff;
+  color: #71104c;
 }
 
 /* ======================== */

@@ -1,9 +1,12 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import { putListing } from "../../service/api"
+import { Context } from "../../App"
 
 function AdEdit() {
     const [inputData, setInputData] = useState()
     const { id } = useParams()
+    const { token } = useContext(Context)
 
     useEffect(() => {
         fetch(`http://localhost:4000/listings/${id}`)
@@ -18,6 +21,7 @@ function AdEdit() {
 
     function handleSubmit(event){
         event.preventDefault()
+        putListing(inputData, inputData.id, token)
     }
 
     function handleImage(event) {
