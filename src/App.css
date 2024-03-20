@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Quattrocento:wght@400;700&display=swap");
+
 .app {
   text-align: center;
 }
@@ -60,8 +62,6 @@ body {
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
 }
-
-
 
 .login-form button:hover {
   background-color: #bb3e89;
@@ -198,6 +198,7 @@ body {
 }
 
 .logo {
+  font-family: "Quattrocento", serif;
   margin-left: 8px;
   color: #eae1e6;
   text-decoration: none;
@@ -527,16 +528,15 @@ select {
 }
 
 textarea {
-    font-family: "Tahoma", "Arial", "Arabic Transparent";
+  font-family: "Tahoma", "Arial", "Arabic Transparent";
 }
-input[type=text] {
-    font-family: "Tahoma", "Arial";
+input[type="text"] {
+  font-family: "Tahoma", "Arial";
 }
 
 .ad-form select {
   width: 52%;
 }
-
 
 .ad-li button {
   padding: 12px 24px;
