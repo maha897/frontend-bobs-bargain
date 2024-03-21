@@ -545,7 +545,7 @@ select {
 }
 
 .desc-textarea {
-  width: 440px;
+  max-width: 500px;
   height: 130px;
 }
 
@@ -557,8 +557,7 @@ select {
 
 .label-box {
   display: flex;
-  justify-content: flex-start;
-  margin-left: 140px;
+  justify-content: center;
   align-items: center;
   gap: 8px;
 }
@@ -570,10 +569,12 @@ select {
 
 .label-box select {
   margin: 0;
+  max-width: 460px;
 }
 
 .label-box input {
   margin: 0;
+  max-width: 450px;
 }
 
 .view-flex {

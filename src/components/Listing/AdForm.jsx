@@ -172,8 +172,8 @@ function AdForm() {
           <FiStar style={{ transform: "translateY(2px)" }} />
         </button>
         <Link to={"/"}>
-          <button type="submit" style={{backgroundColor: "rgb(219, 66, 66)"}}>
-            <FiX style={{ transform: "translateY(2px)"}} /> Cancel
+          <button type="submit" style={{ backgroundColor: "rgb(219, 66, 66)" }}>
+            <FiX style={{ transform: "translateY(2px)" }} /> Cancel
           </button>
         </Link>
       </form>
