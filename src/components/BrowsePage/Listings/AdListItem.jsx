@@ -9,7 +9,7 @@ function AdListItem({ ad, index }) {
   return (
     <div className="ad-container" style={{ animationDelay }}>
       <li className="ad-li">
-        <img src={placeholder} style={{ width: "170px", height: "auto" }} />
+        <img src={placeholder} style={{ width: "160px", height: "auto" }} />
         <p>{ad.title}</p>
         <p>${ad.price}</p>
         <div className="ad-contact-info">
