@@ -52,10 +52,10 @@ export async function fetchListing(listingId, token) {
   return response.data;
 }
 
-export async function fetchAllListings(token, q, c ) {
+export async function fetchAllListings(token, q, c) {
   let url = `${BASE_URL}/listings`;
   if (q || c) {
-    url += '?';
+    url += "?";
     if (q) url += `q=${q}&`;
     if (c) url += `c=${c}&`;
     url = url.slice(0, -1); // Remove "&" character
