@@ -7,19 +7,21 @@ function SearchBar({ setFilteredAds, setLoading }) {
   const { token } = useContext(Context);
   const [selectedCategory, setSelectedCategory] = useState("");
   const [searchQuery, setsearchQuery] = useState("");
+  const [searchQueryText, setsearchQueryText] = useState("");
 
   useEffect(() => {
     if (selectedCategory !== "" || searchQuery.trim() !== "") {
       fetchFilteredAds(selectedCategory);
     } else {
       // Fetch all listings
-      fetchAllListings(token).then((data) => setFilteredAds(data));
+      fetchFilteredAds(selectedCategory);
+      //fetchAllListings(token).then((data) => setFilteredAds(data));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedCategory, searchQuery]);
 
   const fetchFilteredAds = async () => {
-    setLoading(true)
+    setLoading(true);
     try {
       const filteredListings = await fetchAllListings(
         token,
@@ -30,7 +32,7 @@ function SearchBar({ setFilteredAds, setLoading }) {
     } catch (error) {
       console.error("Error fetching filtered listings:", error);
     }
-    setLoading(false)
+    setLoading(false);
   };
 
   function handleSubmit(event) {
@@ -39,10 +41,24 @@ function SearchBar({ setFilteredAds, setLoading }) {
     setsearchQuery(search);
   }
 
+  function handleClear() {
+    setSelectedCategory("");
+    setsearchQuery("");
+    setsearchQueryText("");
+  }
+
   return (
     <div className="search-bar-container">
+      <button className="clear-button" onClick={handleClear}>
+        Clear Filter
+      </button>
       <form className="search-bar">
-        <input name="search-query" placeholder="Search..." />
+        <input
+          name="search-query"
+          placeholder="Search..."
+          value={searchQueryText}
+          onChange={(e) => setsearchQueryText(e.target.value)}
+        />
         <button type="submit" onClick={handleSubmit}>
           Search
         </button>
@@ -71,7 +87,7 @@ function SearchBar({ setFilteredAds, setLoading }) {
 
 SearchBar.propTypes = {
   setFilteredAds: PropTypes.func,
-  setLoading: PropTypes.func
+  setLoading: PropTypes.func,
 };
 
 export default SearchBar;
