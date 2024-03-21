@@ -529,6 +529,124 @@ select {
   background-color: #f9f9f9;
 }
 
+.postal-info {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.postal-city {
+  margin-left: 10px;
+  max-width: 173px;
+}
+
+.postal-code {
+  max-width: 89px;
+}
+
+.desc-textarea {
+  max-width: 500px;
+  height: 130px;
+}
+
+.label-label-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+}
+
+.label-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.label-box label {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: normal;
+}
+
+.label-box select {
+  margin: 0;
+  max-width: 460px;
+}
+
+.label-box input {
+  margin: 0;
+  max-width: 450px;
+}
+
+.view-flex {
+  display: flex;
+  justify-content: center;
+}
+
+.normal-flex-div {
+  display: flex;
+  align-items: center;
+}
+
+.normal-flex-div p {
+  margin: 0;
+}
+
+.view-avatar {
+  margin-right: 1em;
+}
+
+.view-text {
+  display: flex;
+  justify-content: left;
+  flex-direction: column;
+}
+
+.view-text p {
+  display: flex;
+  margin-top: 3px;
+}
+
+.view-text a {
+  color: black;
+  text-decoration: none;
+}
+
+.normal-view-flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.product-info p {
+  margin-top: 0;
+}
+
+.product-info h1 {
+  margin-top: 0;
+}
+
+.view-flex h5 {
+  padding-left: 0.5em;
+  align-self: flex-end;
+  font-weight: 100;
+}
+
+.for-sale {
+  display: flex;
+  align-items: left;
+  justify-content: center;
+}
+
+.for-sale p {
+  margin-bottom: 0;
+}
+
+.for-sale h1 {
+  margin-top: 0;
+}
+
 textarea {
   font-family: "Tahoma", "Arial", "Arabic Transparent";
 }

@@ -2,6 +2,8 @@ import AdListItem from "./AdListItem";
 import PropTypes from "prop-types";
 import { Context } from "../../../App";
 import { useContext } from "react";
+import ScrollToTop from "react-scroll-to-top";
+import { FiArrowUp } from "react-icons/fi";
 
 function AdsList({ ads }) {
   const { userId } = useContext(Context);
@@ -15,6 +17,12 @@ function AdsList({ ads }) {
             )
         )}
       </ul>
+      <div>
+      <ScrollToTop 
+        smooth 
+        component={<FiArrowUp size={20}/>} />
+      </div>
+      
     </div>
   );
 }

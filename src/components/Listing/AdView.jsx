@@ -4,7 +4,9 @@ import { Context } from "../../App";
 import { useParams } from "react-router-dom";
 import { deleteListing, fetchListing, fetchUser } from "../../service/api";
 import { useNavigate, Link } from "react-router-dom";
-import { FiLoader } from "react-icons/fi";
+import { FiLoader, FiPhone, FiMail } from "react-icons/fi";
+import Avatar from "react-avatar";
+import placeholder from "../../assets/stock-img.jpg";
 
 function AdView() {
   const { token, userId } = useContext(Context);
@@ -51,19 +53,53 @@ function AdView() {
     <div className="ad-view-page">
       <div className="ad-view-container">
         <div className="product-info">
-          <h2>{ad.title}</h2>
-          <p>{ad.description}</p>
+          <div className="view-flex">
+            <h2>${ad.price} - {ad.title}</h2>
+            <h5>in {mapCategoryValueToText(ad.category)}</h5>
+          </div>
         </div>
+        <img
+          src={placeholder}
+          style={{ width: "250px", height: "auto", borderRadius: "5px" }}
+        />
+        <p>{ad.description}</p>
         <hr></hr>
         <div className="ad-contact-info">
-          <p>
-            Contact person: {user.firstName} {user.lastName}
-          </p>
-          <p>Email:{user.email}</p>
-          <p>Phone:{user.phone}</p>
-          <p>Postcode: {ad.postcode}</p>
-          <p>Address: {ad.address}</p>
-          <p>City: {ad.city}</p>
+          <div className="normal-view-flex">
+            <div className="normal-flex-div">
+              <Avatar
+                className="view-avatar"
+                name={`${user.firstName} ${user.lastName}`}
+                size={50}
+                round={true}
+              />
+              <div className="view-text">
+                <p
+                  style={{
+                    fontWeight: "bold",
+                    color: "#71104c",
+                  }}
+                >
+                  {user.firstName} {user.lastName}
+                </p>
+                <p>
+                  {ad.address}, {ad.postcode} {ad.city}
+                </p>
+                <p>
+                  <FiMail
+                    style={{ transform: "translateY(2px)", marginRight: "5px" }}
+                  />
+                  <a href={`mailto:${user.email}`}>{user.email}</a>
+                </p>
+                <p>
+                  <FiPhone
+                    style={{ transform: "translateY(2px)", marginRight: "4px" }}
+                  />{" "}
+                  {user.phone}
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
         {userId === ad.user.id && (
           <>
@@ -80,6 +116,27 @@ function AdView() {
     </div>
   );
 }
+
+const mapCategoryValueToText = (value) => {
+  switch (value) {
+    case "electronics":
+      return "Electronics & Appliances";
+    case "clothing":
+      return "Clothing & Cosmetics";
+    case "furniture":
+      return "Furniture & Interior";
+    case "vehicles":
+      return "Vehicles";
+    case "tools":
+      return "Tools & Equipment";
+    case "sports":
+      return "Sports & Hobby";
+    case "other":
+      return "Other";
+    default:
+      return "Unknown";
+  }
+};
 
 AdView.propTypes = {
   ad: PropTypes.object,

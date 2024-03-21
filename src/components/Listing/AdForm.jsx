@@ -1,7 +1,8 @@
 import { useContext, useState } from "react";
 import { Context } from "../../App";
 import { createListing } from "../../service/api";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { FiStar, FiX } from "react-icons/fi";
 
 function AdForm() {
   const { token, userId } = useContext(Context);
@@ -11,7 +12,7 @@ function AdForm() {
     userId: userId,
     title: "",
     description: "",
-    category: "other",
+    category: "",
     price: 0,
     address: "",
     images: [],
@@ -58,112 +59,123 @@ function AdForm() {
 
     reader.readAsArrayBuffer(file);
   }
-  /*
-    console.log(event.target.files)
-    setInputData({
-      ...inputData,
-      images: [...inputData.images, URL.createObjectURL(event.target.files[0])],
-    });
-    console.log(inputData.images)*/
 
   return (
     <div className="ad-form-container">
       <form className="ad-form" onSubmit={submitForm}>
         <div className="ad-form-product-info">
-          <h2>Product Info</h2>
+          <h2>List new item</h2>
           <hr></hr>
-          <br/>
-          <label htmlFor="title">Title</label> <br />
+          <br />
           <input
             type="text"
             name="title"
             onChange={handleChange}
             value={inputData.title}
             required
-            placeholder="Title*"
+            placeholder="Title"
           />
           <br />
-          <br />
-          <label htmlFor="description">Description</label> <br />
           <textarea
             name="description"
+            className="desc-textarea"
             onChange={handleChange}
             value={inputData.description}
             placeholder="Description..."
           ></textarea>{" "}
           <br />
-          <br />
-          <label htmlFor="category">Category</label> <br />
-          <select
-            onChange={handleChange}
-            value={inputData.category}
-            name="category"
-          >
-            <option value="electronics">Electronics & Appliances</option>
-            <option value="clothing">Clothing & Cosmetics</option>
-            <option value="furniture">Furniture & Interior</option>
-            <option value="vehicles">Vehicles</option>
-            <option value="tools">Tools & Equipment</option>
-            <option value="sports">Sports & Hobby</option>
-            <option value="other">Other</option>
-          </select>
-          <br />
-          <br />
-          <label htmlFor="price">Price</label> <br />
-          <input
-            type="number"
-            name="price"
-            onChange={handleChange}
-            value={inputData.price}
-          />
-          <br />
-          <br />
-          <label htmlFor="images">Images</label> <br/>
-          <input
-            type="file"
-            name="images"
-            onChange={handleImage}
-            multiple
-          />{" "}
-          <br />
-          <br />
+          <div className="label-label-box">
+            <div className="label-box">
+              <label htmlFor="category">Category</label> <br />
+              <select
+                onChange={handleChange}
+                value={inputData.category || ""}
+                required
+                name="category"
+              >
+                <option value="" disabled>
+                  Select Category
+                </option>
+                <option value="electronics">Electronics & Appliances</option>
+                <option value="clothing">Clothing & Cosmetics</option>
+                <option value="furniture">Furniture & Interior</option>
+                <option value="vehicles">Vehicles</option>
+                <option value="tools">Tools & Equipment</option>
+                <option value="sports">Sports & Hobby</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <br />
+            <div className="label-box">
+              <label htmlFor="price" style={{ marginRight: "18px" }}>
+                Price
+              </label>{" "}
+              <br />
+              <input
+                type="number"
+                name="price"
+                onChange={handleChange}
+                value={inputData.price}
+              />
+            </div>
+            <br />
+            <div className="label-box">
+              <label htmlFor="images">Images</label> <br />
+              <input
+                type="file"
+                name="images"
+                onChange={handleImage}
+                multiple
+              />
+            </div>
+            <br />
+          </div>
         </div>
 
         <div className="ad-form-contact-info">
-          <label htmlFor="address">Address</label> <br />
           <input
             type="text"
             name="address"
             onChange={handleChange}
             value={inputData.address}
             required
-            placeholder="Address*"
+            placeholder="Address"
           />{" "}
-          <br />
-          <br />
-          <label htmlFor="city">City</label> <br />
-          <input
-            type="text"
-            name="city"
-            onChange={handleChange}
-            value={inputData.city}
-            required
-            placeholder="City*"
-          />{" "}
-          <br /> <br />
-          <label htmlFor="postcode">Post code</label> <br />
-          <input
-            type="number"
-            name="postcode"
-            onChange={handleChange}
-            value={inputData.postcode}
-            required
-            placeholder="Post code*"
-          />{" "}
-          <br /> <br />
+          <div className="postal-info">
+            <input
+              type="text"
+              name="city"
+              onChange={handleChange}
+              className="postal-city"
+              value={inputData.city}
+              required
+              placeholder="City"
+            />
+            <br />
+            <input
+              type="number"
+              name="postcode"
+              onChange={handleChange}
+              value={inputData.postcode}
+              className="postal-code"
+              required
+              placeholder="Postcode"
+            />{" "}
+            <br />
+          </div>
         </div>
-
-        <button type="submit">Publish ad</button>
+        <br />
+        <button type="submit" style={{ marginRight: "20px" }}>
+          <FiStar style={{ transform: "translateY(2px)" }} />{" "}
+          <FiStar style={{ transform: "translateY(2px)" }} /> Publish{" "}
+          <FiStar style={{ transform: "translateY(2px)" }} />{" "}
+          <FiStar style={{ transform: "translateY(2px)" }} />
+        </button>
+        <Link to={"/"}>
+          <button type="submit" style={{ backgroundColor: "rgb(219, 66, 66)" }}>
+            <FiX style={{ transform: "translateY(2px)" }} /> Cancel
+          </button>
+        </Link>
       </form>
     </div>
   );
