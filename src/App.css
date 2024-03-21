@@ -331,7 +331,7 @@ ul {
 
 .ad-container {
   opacity: 0;
-  animation: fadeInUp 1.5s ease forwards;
+  animation: fadeInUp 0.5s ease forwards;
 }
 
 @keyframes fadeInUp {

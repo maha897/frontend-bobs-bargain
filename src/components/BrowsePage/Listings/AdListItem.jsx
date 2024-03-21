@@ -4,7 +4,7 @@ import placeholder from "../../../assets/stock-img.jpg";
 
 function AdListItem({ ad, index }) {
   // Fade in delay on ads:
-  const animationDelay = `${index * 0.3}s`;
+  const animationDelay = `${index * 0.2}s`;
 
   return (
     <div className="ad-container" style={{ animationDelay }}>
