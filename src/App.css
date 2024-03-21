@@ -325,13 +325,14 @@ ul {
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 40px;
-  margin: 10px;
   background-color: #f9f9f9;
+  text-align: center;
 }
 
 .ad-container {
   opacity: 0;
   animation: fadeInUp 0.5s ease forwards;
+  margin: 10px
 }
 
 @keyframes fadeInUp {
@@ -411,8 +412,8 @@ ul {
   justify-content: center;
   background-color: #eee;
   transform: translateY(-20px) translateX(-9px);
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   position: fixed;
   z-index: 999;
   border: 1px solid #ccc;
