@@ -317,6 +317,7 @@ ul {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   list-style: none;
+  padding-right: 40px;
 }
 
 .ad-container {
@@ -569,3 +570,4 @@ input[type="text"] {
   text-align: center;
   margin-top: 10px;
 }
+
