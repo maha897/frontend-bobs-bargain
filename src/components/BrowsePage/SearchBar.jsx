@@ -54,11 +54,12 @@ function SearchBar({ setFilteredAds }) {
           className="category-select"
         >
           <option value="">All</option>
-          <option value="electronics">Electronics and appliances</option>
-          <option value="clothing">Clothing and cosmetics</option>
-          <option value="furniture">Furniture and interior</option>
+          <option value="electronics">Electronics & Appliances</option>
+          <option value="clothing">Clothing & Cosmetics</option>
+          <option value="furniture">Furniture & Interior</option>
           <option value="vehicles">Vehicles</option>
-          <option value="house">House and renovation</option>
+          <option value="tools">Tools & Equipment</option>
+          <option value="sports">Sports & Hobby</option>
           <option value="other">Other</option>
         </select>
       </div>
