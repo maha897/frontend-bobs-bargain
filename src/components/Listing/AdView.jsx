@@ -82,7 +82,7 @@ function AdView() {
           src={placeholder}
           style={{ width: "250px", height: "auto", borderRadius: "5px" }}
         />
-        <p>{ad.description}</p>
+        <p style={{ whiteSpace: "pre-line" }}>{ad.description}</p>
         <hr></hr>
         <br />
         <div className="all-contact">
