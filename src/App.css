@@ -33,6 +33,12 @@ body {
   margin-top: 25px;
 }
 
+.all-contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .login-form {
   display: flex;
   flex-direction: column;
@@ -218,19 +224,16 @@ body {
 }
 
 .map-container {
-  max-width: 650px;
-  height: 300px;
   display: flex;
   text-align: center;
   align-items: center;
   justify-content: center;
-  padding-left: 22%;
+  padding-left: 3em;
 }
 #map {
   width: 100%;
-  max-width: 650px;
-  min-width: 320px;
-  height: 300px;
+  min-width: 400px;
+  min-height: 200px;
   border: 2px solid #ccc;
   border-radius: 5px;
   background-color: white;

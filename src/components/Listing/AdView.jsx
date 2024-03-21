@@ -84,63 +84,77 @@ function AdView() {
         />
         <p>{ad.description}</p>
         <hr></hr>
-        <div className="ad-contact-info">
-          <div className="normal-view-flex">
-            <div className="normal-flex-div">
-              <Avatar
-                className="view-avatar"
-                name={`${user.firstName} ${user.lastName}`}
-                size={50}
-                round={true}
-              />
-              <div className="view-text">
-                <p
-                  style={{
-                    fontWeight: "bold",
-                    color: "#71104c",
-                  }}
-                >
-                  {user.firstName} {user.lastName}
-                </p>
-                <p>
-                  {ad.address}, {ad.postcode} {ad.city}
-                </p>
-                <p>
-                  <FiMail
-                    style={{ transform: "translateY(2px)", marginRight: "5px" }}
-                  />
-                  <a href={`mailto:${user.email}`}>{user.email}</a>
-                </p>
-                <p>
-                  <FiPhone
-                    style={{ transform: "translateY(2px)", marginRight: "4px" }}
-                  />{" "}
-                  {user.phone}
-                </p>
+        <br />
+        <div className="all-contact">
+          <div className="ad-contact-info">
+            <div className="normal-view-flex">
+              <div className="normal-flex-div">
+                <Avatar
+                  className="view-avatar"
+                  name={`${user.firstName} ${user.lastName}`}
+                  size={50}
+                  round={true}
+                />
+                <div className="view-text">
+                  <p
+                    style={{
+                      fontWeight: "bold",
+                      color: "#71104c",
+                    }}
+                  >
+                    {user.firstName} {user.lastName}
+                  </p>
+                  <p>
+                    {ad.address}, {ad.postcode} {ad.city}
+                  </p>
+                  <p>
+                    <FiMail
+                      style={{
+                        transform: "translateY(2px)",
+                        marginRight: "5px",
+                      }}
+                    />
+                    <a href={`mailto:${user.email}`}>{user.email}</a>
+                  </p>
+                  <p>
+                    <FiPhone
+                      style={{
+                        transform: "translateY(2px)",
+                        marginRight: "4px",
+                      }}
+                    />{" "}
+                    {user.phone}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
+          {coordinates && (
+            <>
+              <br />
+              <div className="map-container">
+                <MapContainer
+                  center={coordinates}
+                  zoom={13}
+                  id="map"
+                  zoomControl={false}
+                >
+                  <TileLayer
+                    attribution='<a href="https://www.openstreetmap.org">OpenStreetMap</a> | <a href="https://nominatim.org">Nominatim</a>'
+                    // Use Google Maps tile URL
+                    url="http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}"
+                    subdomains={["mt0", "mt1", "mt2", "mt3"]}
+                  />
+                  {coordinates && (
+                    <Marker position={coordinates}>
+                      <Popup>{ad.title}</Popup>
+                    </Marker>
+                  )}
+                </MapContainer>
+              </div>
+            </>
+          )}
         </div>
-        {coordinates && (
-          <>
-          <br/>
-            <div className="map-container">
-              <MapContainer center={coordinates} zoom={13} id="map">
-                <TileLayer
-                  attribution='<a href="https://www.openstreetmap.org">OpenStreetMap</a> | <a href="https://nominatim.org">Nominatim</a>'
-                  // Use Google Maps tile URL
-                  url="http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}"
-                  subdomains={["mt0", "mt1", "mt2", "mt3"]}
-                />
-                {coordinates && (
-                  <Marker position={coordinates}>
-                    <Popup>{ad.title}</Popup>
-                  </Marker>
-                )}
-              </MapContainer>
-            </div>
-          </>
-        )}
 
         {userId === ad.user.id && (
           <>
