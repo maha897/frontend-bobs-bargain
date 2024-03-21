@@ -412,8 +412,8 @@ ul {
   justify-content: center;
   background-color: #eee;
   transform: translateY(-20px) translateX(-9px);
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   position: fixed;
   z-index: 999;
   border: 1px solid #ccc;
