@@ -309,7 +309,7 @@ ul {
 }
 
 .ads-ul-container {
-  padding-top: 45px;
+  padding-top: 55px;
   width: 100%;
 }
 
@@ -569,5 +569,33 @@ input[type="text"] {
 .ad-li {
   text-align: center;
   margin-top: 10px;
+}
+
+.name-div {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.name-div input {
+  width: 256px;
+}
+
+.rest label {
+  display: flex;
+  margin-left: 270px;
+}
+
+.label-div {
+  display: flex;
+}
+
+.settings-fname {
+  margin-left: 270px;
+}
+
+.settings-lname {
+  margin-left: 220px;
 }
 
