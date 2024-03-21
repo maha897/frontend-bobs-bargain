@@ -203,12 +203,13 @@ body {
   color: #eae1e6;
   text-decoration: none;
   display: flex;
+  width: 300px;
 }
 
 .header-logo {
-  padding-top: 17px;
+  padding-top: 10px;
   padding-right: 15px;
-  max-height: 40px;
+  max-height: 60px;
 }
 
 .login {
