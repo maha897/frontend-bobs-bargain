@@ -529,6 +529,53 @@ select {
   background-color: #f9f9f9;
 }
 
+.postal-info {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.postal-city {
+  margin-left: 10px;
+  max-width: 173px;
+}
+
+.postal-code {
+  max-width: 89px;
+}
+
+.desc-textarea {
+  width: 440px;
+  height: 130px;
+}
+
+.label-label-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+}
+
+.label-box {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 140px;
+  align-items: center;
+  gap: 8px;
+}
+
+.label-box label {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: normal;
+}
+
+.label-box select {
+  margin: 0;
+}
+
+.label-box input {
+  margin: 0;
+}
+
 .view-flex {
   display: flex;
   justify-content: center;
@@ -640,4 +687,3 @@ input[type="text"] {
   text-align: center;
   margin-top: 10px;
 }
-
