@@ -3,6 +3,9 @@ import { useContext, useEffect, useState } from "react";
 import { Context } from "../../App";
 import { useParams } from "react-router-dom";
 import { deleteListing, fetchListing, fetchUser } from "../../service/api";
+import { lookupAddress } from "../../service/mapApi";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
 import { useNavigate, Link } from "react-router-dom";
 import { FiLoader, FiPhone, FiMail } from "react-icons/fi";
 import Avatar from "react-avatar";
@@ -14,6 +17,7 @@ function AdView() {
 
   const [ad, setAd] = useState(null);
   const [user, setUser] = useState(null);
+  const [coordinates, setcoordinates] = useState(null);
 
   const navigate = useNavigate();
 
@@ -25,6 +29,13 @@ function AdView() {
 
         const userResponse = await fetchUser(adResponse.user.id, token);
         setUser(userResponse);
+
+        try {
+          const addressResponse = await lookupAddress(adResponse.address);
+          setcoordinates([addressResponse[0].lat, addressResponse[0].lon]);
+        } catch (error) {
+          console.error("Cant find address");
+        }
       } catch (error) {
         console.error("Error initializing page. Redirecting to index page.");
         navigate("/");
@@ -110,6 +121,27 @@ function AdView() {
             </div>
           </div>
         </div>
+        {coordinates && (
+          <>
+          <br/>
+            <div className="map-container">
+              <MapContainer center={coordinates} zoom={13} id="map">
+                <TileLayer
+                  attribution='<a href="https://www.openstreetmap.org">OpenStreetMap</a> | <a href="https://nominatim.org">Nominatim</a>'
+                  // Use Google Maps tile URL
+                  url="http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}"
+                  subdomains={["mt0", "mt1", "mt2", "mt3"]}
+                />
+                {coordinates && (
+                  <Marker position={coordinates}>
+                    <Popup>{ad.title}</Popup>
+                  </Marker>
+                )}
+              </MapContainer>
+            </div>
+          </>
+        )}
+
         {userId === ad.user.id && (
           <>
             <hr></hr>

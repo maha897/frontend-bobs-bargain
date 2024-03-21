@@ -216,6 +216,21 @@ body {
   color: #71104c;
 }
 
+.map-container {
+  max-width: 650px;
+  height: 300px;
+}
+#map {
+  width: 100%;
+  max-width: 650px;
+  min-width: 320px;
+  height: 300px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  background-color: white;
+  z-index: 1;
+}
+
 /* ======================== */
 
 .log-out-button {
