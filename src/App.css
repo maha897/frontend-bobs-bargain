@@ -705,6 +705,14 @@ input[type="text"] {
   margin-left: 270px;
 }
 
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20vh;
+  margin-left: 45vw;
+}
+
 .label-div {
   display: flex;
 }
@@ -716,4 +724,3 @@ input[type="text"] {
 .settings-lname {
   margin-left: 220px;
 }
-

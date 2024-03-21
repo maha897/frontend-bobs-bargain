@@ -3,7 +3,7 @@ import { fetchAllListings } from "../../service/api";
 import { Context } from "../../App";
 import PropTypes from "prop-types";
 
-function SearchBar({ setFilteredAds }) {
+function SearchBar({ setFilteredAds, setLoading }) {
   const { token } = useContext(Context);
   const [selectedCategory, setSelectedCategory] = useState("");
   const [searchQuery, setsearchQuery] = useState("");
@@ -19,6 +19,7 @@ function SearchBar({ setFilteredAds }) {
   }, [selectedCategory, searchQuery]);
 
   const fetchFilteredAds = async () => {
+    setLoading(true)
     try {
       const filteredListings = await fetchAllListings(
         token,
@@ -29,6 +30,7 @@ function SearchBar({ setFilteredAds }) {
     } catch (error) {
       console.error("Error fetching filtered listings:", error);
     }
+    setLoading(false)
   };
 
   function handleSubmit(event) {
@@ -69,6 +71,7 @@ function SearchBar({ setFilteredAds }) {
 
 SearchBar.propTypes = {
   setFilteredAds: PropTypes.func,
+  setLoading: PropTypes.func
 };
 
 export default SearchBar;

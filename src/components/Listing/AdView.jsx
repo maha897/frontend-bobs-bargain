@@ -51,7 +51,7 @@ function AdView() {
         <br />
         <br />
         <br />
-        <FiLoader className="spin" />
+        <FiLoader className="spin loader" />
       </>
     );
   }
