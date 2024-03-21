@@ -6,31 +6,44 @@ import PropTypes from "prop-types";
 function SearchBar({ setFilteredAds }) {
   const { token } = useContext(Context);
   const [selectedCategory, setSelectedCategory] = useState("");
+  const [searchQuery, setsearchQuery] = useState("");
 
   useEffect(() => {
-    if (selectedCategory !== "") {
+    if (selectedCategory !== "" || searchQuery.trim() !== "") {
       fetchFilteredAds(selectedCategory);
     } else {
-      // If no category is selected, fetch all listings
+      // Fetch all listings
       fetchAllListings(token).then((data) => setFilteredAds(data));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedCategory]); // Fetch filtered ads whenever the selected category changes
+  }, [selectedCategory, searchQuery]);
 
-  const fetchFilteredAds = async (category) => {
+  const fetchFilteredAds = async () => {
     try {
-      const filteredListings = await fetchAllListings(token, null, category);
+      const filteredListings = await fetchAllListings(
+        token,
+        searchQuery,
+        selectedCategory
+      );
       setFilteredAds(filteredListings);
     } catch (error) {
       console.error("Error fetching filtered listings:", error);
     }
   };
 
+  function handleSubmit(event) {
+    event.preventDefault();
+    const search = event.target.form[0].value;
+    setsearchQuery(search);
+  }
+
   return (
     <div className="search-bar-container">
       <form className="search-bar">
         <input name="search-query" placeholder="Search..." />
-        <button type="submit">Search</button>
+        <button type="submit" onClick={handleSubmit}>
+          Search
+        </button>
       </form>
 
       <div className="category-dropdown">
@@ -54,7 +67,7 @@ function SearchBar({ setFilteredAds }) {
 }
 
 SearchBar.propTypes = {
-  setFilteredAds: PropTypes.function,
+  setFilteredAds: PropTypes.func,
 };
 
 export default SearchBar;
