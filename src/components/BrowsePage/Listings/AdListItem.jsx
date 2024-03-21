@@ -9,7 +9,7 @@ function AdListItem({ ad,  index }) {
     <div className="ad-container" style={ {animationDelay}}>
       <li className="ad-li">
         <p>{ad.title}</p>
-        <p>{ad.price}$</p>
+        <p>${ad.price}</p>
         <div className="ad-contact-info">
           <Link to={`/listings/${ad.id}`}>
             <button>View</button>
