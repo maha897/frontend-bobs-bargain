@@ -1,7 +1,7 @@
 import axios from "axios";
 const BASE_URL = "https://nominatim.openstreetmap.org/search";
 
-async function lookupAddress(address) {
+export async function lookupAddress(address) {
   try {
     const response = await axios.get(BASE_URL, {
       params: {
