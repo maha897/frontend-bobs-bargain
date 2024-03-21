@@ -3,7 +3,16 @@ import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../App";
 import { FiPlus } from "react-icons/fi";
 import Avatar from "react-avatar";
+
 import logo from "../assets/logo.png";
+
+// import logo from "../assets/BB_lys-bakg_diamant.svg"
+// import logo from "../assets/BB_lys-bakg.svg"
+// import logo from "../assets/BB_mork-bakg.svg"
+// import logo from "../assets/rosa_lys-bakg_diamant.svg"
+// import logo from "../assets/rosa_lys-bakg.svg"
+// import logo from "../assets/rosa_mork_bakg.svg"
+
 
 /* eslint-disable react/no-unescaped-entities */
 function Header() {

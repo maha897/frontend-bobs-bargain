@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170.93 191.41">
+  <defs>
+    <style>
+      .cls-1 {
+        font-family: Kopius-Bold, Kopius;
+        font-size: 173px;
+        font-weight: 700;
+      }
+
+      .cls-1, .cls-2 {
+        fill: #eae1e6;
+      }
+
+      .cls-3 {
+        fill: #71104c;
+      }
+
+      .cls-3, .cls-2 {
+        stroke-width: 0px;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <rect class="cls-3" width="170" height="170"/>
+    <g>
+      <text class="cls-1" transform="translate(47.8 147.12)"><tspan x="0" y="0">B</tspan></text>
+      <path class="cls-3" d="M46.93,28.49s38.4,1.03,37.44,29.71-37.44,35.69-37.44,35.69V28.49Z"/>
+      <path class="cls-3" d="M48.93,78.9s35.96,8.62,35,37.31-35,31.8-35,31.8v-69.11Z"/>
+      <path class="cls-2" d="M25.07,96.42h14.85s16.23.2,16.12,18.34-15.89,19.14-15.89,19.14l-15.07.06v-37.54Z"/>
+      <path class="cls-2" d="M25.07,41.42h14.85s16.23.2,16.12,18.34-15.89,19.14-15.89,19.14l-15.07.06v-37.54Z"/>
+    </g>
+  </g>
+</svg>
