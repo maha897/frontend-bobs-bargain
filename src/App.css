@@ -219,6 +219,11 @@ body {
 .map-container {
   max-width: 650px;
   height: 300px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding-left: 22%;
 }
 #map {
   width: 100%;
@@ -813,3 +818,4 @@ select {
 .edit-ad-form select {
   width: 574px;
 }
+
