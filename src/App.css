@@ -528,6 +528,76 @@ select {
   background-color: #f9f9f9;
 }
 
+.view-flex {
+  display: flex;
+  justify-content: center;
+}
+
+.normal-flex-div {
+  display: flex;
+  align-items: center;
+}
+
+.normal-flex-div p {
+  margin: 0;
+}
+
+.view-avatar {
+  margin-right: 1em;
+}
+
+.view-text {
+  display: flex;
+  justify-content: left;
+  flex-direction: column;
+}
+
+.view-text p {
+  display: flex;
+  margin-top: 3px;
+}
+
+.view-text a {
+  color: black;
+  text-decoration: none;
+}
+
+.normal-view-flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.product-info p {
+  margin-top: 0;
+}
+
+.product-info h1 {
+  margin-top: 0;
+}
+
+.view-flex h5 {
+  padding-left: 0.5em;
+  align-self: flex-end;
+  font-weight: 100;
+}
+
+.for-sale {
+  display: flex;
+  align-items: left;
+  justify-content: center;
+}
+
+.for-sale p {
+  margin-bottom: 0;
+}
+
+.for-sale h1 {
+  margin-top: 0;
+}
+
 textarea {
   font-family: "Tahoma", "Arial", "Arabic Transparent";
 }
