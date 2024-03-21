@@ -46,7 +46,14 @@ function AdView() {
   }
 
   if (!ad || !user) {
-    return <FiLoader className="spin" />;
+    return (
+      <>
+        <br />
+        <br />
+        <br />
+        <FiLoader className="spin" />
+      </>
+    );
   }
 
   return (
@@ -54,7 +61,9 @@ function AdView() {
       <div className="ad-view-container">
         <div className="product-info">
           <div className="view-flex">
-            <h2>${ad.price} - {ad.title}</h2>
+            <h2>
+              ${ad.price} - {ad.title}
+            </h2>
             <h5>in {mapCategoryValueToText(ad.category)}</h5>
           </div>
         </div>
