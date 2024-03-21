@@ -64,7 +64,8 @@ function AdEdit() {
       <div className="edit-ad-form-container">
         <form className="edit-ad-form" onSubmit={handleSubmit}>
           <div className="ad-form-product-info">
-            <h3>Product Info</h3>
+            <h2>Product Info</h2>
+            <hr></hr> <br/>
             <label htmlFor="title">Title</label> <br />
             <input
               type="text"

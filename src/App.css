@@ -736,3 +736,65 @@ input[type="text"] {
 .settings-lname {
   margin-left: 220px;
 }
+
+/* ============================ */
+.edit-ad-form-container {
+  border: 1.5px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  padding-top: 0;
+  margin: 30px;
+  background-color: #f9f9f9;
+}
+
+.edit-ad-form {
+  margin-top: 50px;
+}
+
+.edit-ad-form h2 {
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+.edit-ad-form label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.edit-ad-form input,
+textarea,
+select {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 50%;
+}
+
+.edit-ad-form input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.edit-ad-form button {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #ce4c9a;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.edit-ad-form button:hover {
+  background-color: #bb3e89;
+}
+
+.edit-ad-form select {
+  width: 574px;
+}
