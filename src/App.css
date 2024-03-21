@@ -6,6 +6,7 @@
 
 body {
   background-color: #eae1e6;
+  overflow-y: scroll;
 }
 
 .page {
