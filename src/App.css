@@ -317,6 +317,7 @@ ul {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   list-style: none;
+  padding-right: 40px;
 }
 
 .ad-container {
@@ -324,7 +325,7 @@ ul {
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 40px;
-  margin: 20px;
+  margin: 10px;
   background-color: #f9f9f9;
 }
 
@@ -634,3 +635,9 @@ input[type="text"] {
 .ad-li img {
   border-radius: 5px;
 }
+
+.ad-li {
+  text-align: center;
+  margin-top: 10px;
+}
+
