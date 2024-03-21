@@ -1,13 +1,15 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import placeholder from "../../../assets/stock-img.jpg";
 
-function AdListItem({ ad,  index }) {
+function AdListItem({ ad, index }) {
   // Fade in delay on ads:
-  const animationDelay = `${index * 0.3}s`
-  
+  const animationDelay = `${index * 0.3}s`;
+
   return (
-    <div className="ad-container" style={ {animationDelay}}>
+    <div className="ad-container" style={{ animationDelay }}>
       <li className="ad-li">
+        <img src={placeholder} style={{ width: "170px", height: "auto" }} />
         <p>{ad.title}</p>
         <p>${ad.price}</p>
         <div className="ad-contact-info">
@@ -24,7 +26,6 @@ AdListItem.propTypes = {
   ad: PropTypes.object,
   edit: PropTypes.bool,
   index: PropTypes.number,
-
 };
 
 export default AdListItem;
